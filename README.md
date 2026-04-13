@@ -1,4 +1,4 @@
-# 🏥 Antigravity Health - Enterprise Healthcare ERP
+# 🏥 Health - Enterprise Healthcare ERP
 
 An enterprise-grade, production-ready Healthcare ERP and Telemedicine platform designed for modern hospitals, multi-specialty clinics, and healthcare networks. Built with **Next.js 16**, **Tailwind CSS v4**, and **Lucide Icons**.
 
