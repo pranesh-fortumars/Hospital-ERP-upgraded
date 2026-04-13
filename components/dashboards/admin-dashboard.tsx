@@ -20,7 +20,15 @@ import {
   PackageSearch,
   LineChart,
   ClipboardCheck,
+  ShieldAlert,
+  History,
+  Activity,
+  UserCog
 } from "lucide-react"
+import EnterpriseAnalytics from "@/components/dashboards/enterprise-analytics"
+import SecurityAuditLogs from "@/components/dashboards/security-audit-logs"
+import HospitalOperations from "@/components/dashboards/hospital-operations"
+import OTManagement from "@/components/dashboards/ot-management"
 
 interface User {
   id: string
@@ -265,6 +273,22 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
   }
 
   const shouldShow = (sectionId: string) => !activeSection || activeSection === sectionId
+
+  if (activeSection === "admin-analytics") {
+    return <EnterpriseAnalytics />
+  }
+
+  if (activeSection === "admin-audit") {
+    return <SecurityAuditLogs />
+  }
+
+  if (activeSection === "admin-operations") {
+    return <HospitalOperations />
+  }
+
+  if (activeSection === "admin-ot") {
+    return <OTManagement />
+  }
 
   return (
     <div className="space-y-8">

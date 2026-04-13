@@ -24,6 +24,12 @@ import {
   Briefcase,
   Hospital,
   LineChart,
+  ShieldCheck,
+  Activity,
+  History,
+  TrendingUp,
+  Monitor,
+  Sparkles,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import {
@@ -82,6 +88,10 @@ const ROLE_SPECIFIC_SECTIONS: Record<string, SidebarSection[]> = {
       items: [
         { label: "Overview", icon: LayoutDashboard, value: "admin-overview" },
         { label: "User Management", icon: Users, value: "admin-users" },
+        { label: "Enterprise Analytics", icon: TrendingUp, value: "admin-analytics" },
+        { label: "Operations Control", icon: Hospital, value: "admin-operations" },
+        { label: "OT & ICU Monitor", icon: Monitor, value: "admin-ot" },
+        { label: "Security & Audit", icon: ShieldCheck, value: "admin-audit" },
         { label: "Pharmacy Insights", icon: LineChart, value: "admin-pharmacy" },
         { label: "Staff Insights", icon: Users, value: "admin-staff" },
       ],
@@ -112,7 +122,9 @@ const ROLE_SPECIFIC_SECTIONS: Record<string, SidebarSection[]> = {
       title: "My Care",
       items: [
         { label: "Overview", icon: LayoutDashboard, value: "patient-overview" },
+        { label: "AI Symptom Checker", icon: Sparkles, value: "patient-symptom-checker" },
         { label: "Appointments", icon: Calendar, value: "patient-appointments" },
+        { label: "Remote Monitoring", icon: Activity, value: "patient-rpm" },
         { label: "Medical Records", icon: FileText, value: "patient-records" },
         { label: "Prescriptions", icon: ClipboardList, value: "patient-prescriptions" },
       ],

@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Calendar, Plus, Edit2, Trash2, X, CheckCircle, Clock } from "lucide-react"
+import { Calendar, Plus, Edit2, Trash2, X, CheckCircle, Clock, Video, Sparkles, UserCheck } from "lucide-react"
+import ConsultationSession from "@/components/telemedicine/consultation-session"
+import Patient360 from "@/components/dashboards/patient-360"
 
 interface Consultation {
   id: string
@@ -183,6 +185,8 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
   const [newPrescription, setNewPrescription] = useState<PrescriptionFormData>(createDefaultPrescriptionForm())
 
   const [showModal, setShowModal] = useState(false)
+  const [activeTelemedicine, setActiveTelemedicine] = useState<string | null>(null)
+  const [viewingPatientId, setViewingPatientId] = useState<string | null>(null)
   const [editingConsultation, setEditingConsultation] = useState<Consultation | null>(null)
   const [formData, setFormData] = useState<ConsultationFormData>({
     patientName: "",
@@ -482,6 +486,32 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
 
   const shouldShow = (sectionId: string) => !activeSection || activeSection === sectionId
 
+  if (activeTelemedicine) {
+    return (
+      <div className="space-y-6">
+        <div className="flex items-center justify-between">
+           <h2 className="text-2xl font-bold flex items-center gap-2">
+             <Video className="h-6 w-6 text-primary" /> Telemedicine Consultation
+           </h2>
+           <Button variant="outline" onClick={() => setActiveTelemedicine(null)}>Exit Session</Button>
+        </div>
+        <ConsultationSession patientName={activeTelemedicine} onEnd={() => setActiveTelemedicine(null)} />
+      </div>
+    )
+  }
+
+  if (viewingPatientId) {
+    return (
+      <div className="space-y-6">
+        <div className="flex items-center justify-between">
+           <h2 className="text-2xl font-bold">Patient 360 View</h2>
+           <Button variant="outline" onClick={() => setViewingPatientId(null)}>Back to Dashboard</Button>
+        </div>
+        <Patient360 patientId={viewingPatientId} />
+      </div>
+    )
+  }
+
   const filteredPatientRecords = patientRecords.filter((record) => {
     if (!patientRecordQuery.trim()) return true
     const query = patientRecordQuery.trim().toLowerCase()
@@ -627,6 +657,24 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                                   <CheckCircle className="h-4 w-4" />
                                 </Button>
                               )}
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => setActiveTelemedicine(consultation.patientName)}
+                                title="Start Telemedicine"
+                                className="h-8 px-2 text-primary hover:text-primary/80"
+                              >
+                                <Video className="h-4 w-4" />
+                              </Button>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => setViewingPatientId(consultation.patientId)}
+                                title="View Patient 360"
+                                className="h-8 px-2 text-teal-600 hover:text-teal-700"
+                              >
+                                <UserCheck className="h-4 w-4" />
+                              </Button>
                               <Button
                                 variant="ghost"
                                 size="sm"

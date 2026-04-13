@@ -4,7 +4,9 @@ import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
-import { Pill, Heart, FileText, Download, Eye, X } from "lucide-react"
+import { Pill, Heart, FileText, Download, Eye, X, Activity, Sparkles } from "lucide-react"
+import Patient360 from "@/components/dashboards/patient-360"
+import SymptomChecker from "@/components/ai/symptom-checker"
 
 interface MedicalRecord {
   id: string
@@ -146,6 +148,14 @@ export default function PatientDashboard({ activeSection = null }: PatientDashbo
   }
 
   const shouldShow = (sectionId: string) => !activeSection || activeSection === sectionId
+
+  if (activeSection === "patient-rpm") {
+    return <Patient360 patientId="P001" />
+  }
+
+  if (activeSection === "patient-symptom-checker") {
+    return <SymptomChecker />
+  }
 
   return (
     <div className="space-y-8">

@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Plus, Edit2, Trash2, X, AlertCircle } from "lucide-react"
+import { Plus, Edit2, Trash2, X, AlertCircle, Microscope } from "lucide-react"
+import DiagnosticLab from "@/components/dashboards/diagnostic-lab"
 
 interface LabTest {
   id: string
@@ -249,6 +250,10 @@ export default function LabDashboard({ activeSection = null }: LabDashboardProps
   }
 
   const shouldShow = (sectionId: string) => !activeSection || activeSection === sectionId
+
+  if (activeSection === "lab-overview") {
+    return <DiagnosticLab />
+  }
 
   return (
     <div className="space-y-8">
