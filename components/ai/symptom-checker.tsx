@@ -131,37 +131,45 @@ export default function SymptomChecker() {
              </div>
              <CardContent className="p-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                   <div className="space-y-4">
-                      <div>
-                         <Label className="text-muted-foreground uppercase text-[10px] font-bold tracking-widest">Potential Condition</Label>
-                         <p className="text-2xl font-bold text-gray-900 mt-1">{result.prediction}</p>
-                      </div>
-                      <div className="p-4 rounded-xl bg-muted/30 border border-border">
-                         <div className="flex items-center gap-2 mb-2">
-                            <AlertCircle className="h-4 w-4 text-primary" />
-                            <span className="text-sm font-bold">Recommended Actions</span>
-                         </div>
-                         <p className="text-sm leading-relaxed text-gray-700">{result.recommendation}</p>
-                      </div>
-                   </div>
-                   
-                   <div className="space-y-4">
-                      <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20">
-                         <Stethoscope className="h-8 w-8 text-primary mb-4" />
-                         <h4 className="font-bold">Suggested Routing</h4>
-                         <p className="text-sm text-muted-foreground mb-4">Based on your symptoms, we recommend speaking with a specialist.</p>
-                         <div className="flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-slate-900 shadow-sm border border-border">
-                            <div className="h-10 w-10 rounded-full bg-teal-500/10 flex items-center justify-center">
-                               <CheckCircle2 className="h-6 w-6 text-teal-600" />
-                            </div>
-                            <div className="flex-1">
-                               <p className="text-xs font-bold">{result.doctor}</p>
-                               <p className="text-[10px] text-muted-foreground">Available today: 04:00 PM</p>
-                            </div>
-                         </div>
-                         <Button className="w-full mt-4 rounded-xl">Book Instant Appointment</Button>
-                      </div>
-                   </div>
+                    <div className="flex flex-col gap-6">
+                       <div>
+                          <Label className="text-muted-foreground uppercase text-[10px] font-black tracking-[0.2em]">Potential Condition</Label>
+                          <p className="text-3xl font-black text-foreground tracking-tight mt-1 leading-tight">{result.prediction}</p>
+                       </div>
+                       <div className="p-5 rounded-xl bg-muted/30 border border-border/50">
+                          <div className="flex items-center gap-2 mb-3">
+                             <div className="p-1 rounded-md bg-primary/10">
+                                <AlertCircle className="h-4 w-4 text-primary" />
+                             </div>
+                             <span className="text-sm font-bold tracking-tight">Recommended Actions</span>
+                          </div>
+                          <p className="text-sm leading-relaxed text-foreground/80">{result.recommendation}</p>
+                       </div>
+                    </div>
+                                      <div className="flex flex-col h-full">
+                       <div className="p-6 rounded-2xl bg-primary/5 border border-primary/20 flex-1 flex flex-col">
+                          <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                             <Stethoscope className="h-6 w-6 text-primary" />
+                          </div>
+                          <h4 className="font-bold text-lg tracking-tight">Suggested Routing</h4>
+                          <p className="text-sm text-muted-foreground mb-6">Based on your symptoms, we recommend speaking with a specialist.</p>
+                          
+                          <div className="mt-auto space-y-4">
+                             <div className="flex items-center gap-4 p-4 rounded-xl bg-background border border-border shadow-sm">
+                                <div className="h-12 w-12 rounded-full bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                                   <CheckCircle2 className="h-6 w-6 text-emerald-600" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                   <p className="text-sm font-bold text-foreground truncate">{result.doctor}</p>
+                                   <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-0.5">Available today: 04:00 PM</p>
+                                </div>
+                             </div>
+                             <Button className="w-full h-12 rounded-xl font-bold shadow-lg shadow-primary/20 bg-primary text-white hover:bg-primary/90">
+                                Book Instant Appointment
+                             </Button>
+                          </div>
+                       </div>
+                    </div>
                 </div>
                 
                 <button 
