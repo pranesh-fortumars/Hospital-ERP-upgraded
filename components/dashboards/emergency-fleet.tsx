@@ -28,7 +28,7 @@ export default function EmergencyFleet() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-           <h2 className="text-2xl font-bold tracking-tight">Emergency Fleet & Dispatch</h2>
+           <h2 className="text-2xl font-bold tracking-tight text-foreground">Emergency Fleet & Dispatch</h2>
            <p className="text-sm text-muted-foreground">Real-time ambulance tracking, response time analytics, and emergency dispatch control.</p>
         </div>
         <div className="flex items-center gap-3">
@@ -54,9 +54,10 @@ export default function EmergencyFleet() {
                   <Badge className="bg-teal-500 text-white border-0">Live Telemetry</Badge>
                </div>
             </CardHeader>
-            <CardContent className="p-0 relative bg-slate-100 dark:bg-slate-800 h-[500px] flex items-center justify-center border-t">
-               {/* Mock Map Background */}
-               <div className="absolute inset-0 opacity-20 pointer-events-none bg-[url('https://www.google.com/maps/vt/pb=!1m4!1m3!1i13!2i2411!3i4650!2m3!1e0!2sm!3i633000000!3m8!2sen!3sus!5e1105!12m4!1e68!2m2!1sset!2sRoadmap!4e0!5m1!5f2')] bg-cover" />
+            <CardContent className="p-0 relative bg-muted/30 h-[500px] flex items-center justify-center border-t overflow-hidden">
+               {/* Mock Map Background - CSS Pattern instead of broken URL */}
+               <div className="absolute inset-0 opacity-10 pointer-events-none bg-mesh" />
+               <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'radial-gradient(var(--color-primary) 0.5px, transparent 0.5px)', backgroundSize: '24px 24px' }} />
                
                {/* Static Map Markers for Demo */}
                <div className="relative z-10 w-full h-full flex items-center justify-center p-8">

@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Pill, Heart, FileText, Download, Eye, X, Activity, Sparkles } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 import Patient360 from "@/components/dashboards/patient-360"
 import SymptomChecker from "@/components/ai/symptom-checker"
 
@@ -162,47 +163,47 @@ export default function PatientDashboard({ activeSection = null }: PatientDashbo
       {shouldShow("patient-overview") && (
         <section id="patient-overview" className="space-y-4">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">Patient Portal</h2>
-            <p className="text-gray-600 mt-2">View your medical records and appointments</p>
+            <h2 className="text-3xl font-bold text-foreground">Patient Portal</h2>
+            <p className="text-muted-foreground mt-2">View your medical records and appointments</p>
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-            <Card>
+            <Card className="glass-card transition-all hover:scale-[1.02]">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Upcoming Appointments</CardTitle>
+                <CardTitle className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Upcoming</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{upcomingAppointments.length}</div>
-                <p className="text-xs text-gray-600 mt-1">
-                  {upcomingAppointments.length > 0 ? `Next: ${upcomingAppointments[0].date}` : "No upcoming"}
+                <div className="text-2xl font-bold text-foreground">{upcomingAppointments.length}</div>
+                <p className="text-[10px] text-muted-foreground mt-1">
+                  {upcomingAppointments.length > 0 ? `Next: ${upcomingAppointments[0].date}` : "No scheduled"}
                 </p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="glass-card transition-all hover:scale-[1.02]">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Medical Records</CardTitle>
+                <CardTitle className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Records</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{medicalRecords.length}</div>
-                <p className="text-xs text-gray-600 mt-1">Available</p>
+                <div className="text-2xl font-bold text-foreground">{medicalRecords.length}</div>
+                <p className="text-[10px] text-muted-foreground mt-1 text-teal-600 font-bold">Securely stored</p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="glass-card transition-all hover:scale-[1.02]">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Prescriptions</CardTitle>
+                <CardTitle className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Active RX</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{activePrescriptions.length}</div>
-                <p className="text-xs text-gray-600 mt-1">Active</p>
+                <div className="text-2xl font-bold text-foreground">{activePrescriptions.length}</div>
+                <p className="text-[10px] text-muted-foreground mt-1 text-blue-600 font-bold">Current plans</p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="glass-card transition-all hover:scale-[1.02]">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Lab Results</CardTitle>
+                <CardTitle className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Lab Pipeline</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{labResults.length}</div>
-                <p className="text-xs text-gray-600 mt-1">Recent</p>
+                <div className="text-2xl font-bold text-foreground">{labResults.length}</div>
+                <p className="text-[10px] text-muted-foreground mt-1">Recent updates</p>
               </CardContent>
             </Card>
           </div>
@@ -220,18 +221,18 @@ export default function PatientDashboard({ activeSection = null }: PatientDashbo
               <div className="space-y-3">
                 {upcomingAppointments.length > 0 ? (
                   upcomingAppointments.map((apt) => (
-                    <div key={apt.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                    <div key={apt.id} className="flex items-center justify-between p-4 bg-primary/5 border border-primary/20 rounded-xl">
                       <div>
-                        <p className="font-medium">{apt.reason}</p>
-                        <p className="text-sm text-gray-600">
-                          {apt.date} at {apt.time} with {apt.doctor}
+                        <p className="font-bold text-foreground">{apt.reason}</p>
+                        <p className="text-xs text-muted-foreground">
+                          {apt.date} at {apt.time} with Dr. {apt.doctor.replace('Dr. ', '')}
                         </p>
                       </div>
-                      <span className="text-sm font-medium text-blue-600">Scheduled</span>
+                      <Badge variant="outline" className="text-[10px] font-bold text-teal-600 border-teal-200">SCHEDULED</Badge>
                     </div>
                   ))
                 ) : (
-                  <p className="text-gray-500 text-center py-4">No upcoming appointments</p>
+                  <p className="text-muted-foreground text-center py-8 bg-muted/30 rounded-xl border border-dashed border-border">No upcoming appointments</p>
                 )}
               </div>
             </CardContent>
@@ -251,20 +252,22 @@ export default function PatientDashboard({ activeSection = null }: PatientDashbo
                 {medicalRecords.map((record) => (
                   <div
                     key={record.id}
-                    className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition"
+                    className="flex items-center justify-between p-4 bg-background/50 border border-border rounded-xl hover:bg-muted/30 transition-all group"
                   >
-                    <div className="flex items-center gap-3 flex-1">
-                      {getRecordIcon(record.type)}
+                    <div className="flex items-center gap-4 flex-1">
+                       <div className="h-10 w-10 rounded-xl bg-muted/50 flex items-center justify-center group-hover:scale-110 transition-transform">
+                          {getRecordIcon(record.type)}
+                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-2">
-                          <p className="font-medium">{record.title}</p>
+                          <p className="font-bold text-foreground text-sm">{record.title}</p>
                           <span
-                            className={`inline-block px-2 py-1 rounded text-xs font-medium ${getRecordBadgeColor(record.type)}`}
+                             className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${getRecordBadgeColor(record.type)}`}
                           >
                             {record.type.replace("_", " ")}
                           </span>
                         </div>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-mono mt-0.5">
                           {record.date} • {record.doctor}
                         </p>
                       </div>
