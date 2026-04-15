@@ -115,7 +115,7 @@ export default function PatientDashboard({ activeSection = null }: PatientDashbo
       case "diagnosis":
         return <Heart className="h-5 w-5 text-red-600" />
       default:
-        return <FileText className="h-5 w-5 text-gray-600" />
+        return <FileText className="h-5 w-5 text-muted-foreground" />
     }
   }
 
@@ -128,7 +128,7 @@ export default function PatientDashboard({ activeSection = null }: PatientDashbo
       case "diagnosis":
         return "bg-red-100 text-red-800"
       default:
-        return "bg-gray-100 text-gray-800"
+        return "bg-gray-100 text-foreground"
     }
   }
 
@@ -314,8 +314,8 @@ export default function PatientDashboard({ activeSection = null }: PatientDashbo
                     <div key={rx.id} className="flex items-center justify-between p-4 bg-blue-50 rounded-lg">
                       <div>
                         <p className="font-medium">{rx.title}</p>
-                        <p className="text-sm text-gray-600">{rx.description}</p>
-                        <p className="text-xs text-gray-500 mt-1">Prescribed by {rx.doctor}</p>
+                        <p className="text-sm text-muted-foreground">{rx.description}</p>
+                        <p className="text-xs text-muted-foreground mt-1">Prescribed by {rx.doctor}</p>
                       </div>
                       <Button variant="ghost" size="sm" onClick={() => handleViewRecord(rx)} className="h-8 px-2">
                         View
@@ -323,7 +323,7 @@ export default function PatientDashboard({ activeSection = null }: PatientDashbo
                     </div>
                   ))
                 ) : (
-                  <p className="text-gray-500 text-center py-4">No active prescriptions</p>
+                  <p className="text-muted-foreground text-center py-4">No active prescriptions</p>
                 )}
               </div>
             </CardContent>
@@ -342,28 +342,28 @@ export default function PatientDashboard({ activeSection = null }: PatientDashbo
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <Label className="text-gray-600">Type</Label>
+                <Label className="text-muted-foreground">Type</Label>
                 <p className="font-medium">{selectedRecord.type.replace("_", " ")}</p>
               </div>
 
               <div>
-                <Label className="text-gray-600">Date</Label>
+                <Label className="text-muted-foreground">Date</Label>
                 <p className="font-medium">{selectedRecord.date}</p>
               </div>
 
               <div>
-                <Label className="text-gray-600">Doctor</Label>
+                <Label className="text-muted-foreground">Doctor</Label>
                 <p className="font-medium">{selectedRecord.doctor}</p>
               </div>
 
               <div>
-                <Label className="text-gray-600">Description</Label>
+                <Label className="text-muted-foreground">Description</Label>
                 <p className="font-medium">{selectedRecord.description}</p>
               </div>
 
               <div>
-                <Label className="text-gray-600">Details</Label>
-                <p className="text-sm text-gray-700 whitespace-pre-wrap">{selectedRecord.details}</p>
+                <Label className="text-muted-foreground">Details</Label>
+                <p className="text-sm text-foreground/90 whitespace-pre-wrap">{selectedRecord.details}</p>
               </div>
 
               <div className="flex gap-2 pt-4">

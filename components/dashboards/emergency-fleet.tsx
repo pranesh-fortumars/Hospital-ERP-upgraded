@@ -63,7 +63,7 @@ export default function EmergencyFleet() {
                <div className="relative z-10 w-full h-full flex items-center justify-center p-8">
                   <div className="w-full h-full border-4 border-dashed border-slate-300 dark:border-slate-700 rounded-3xl flex flex-col items-center justify-center bg-white/50 dark:bg-black/20 backdrop-blur-sm">
                      <MapPin className="h-10 w-10 text-red-500 mb-4 animate-bounce" />
-                     <p className="font-bold text-slate-600 dark:text-slate-300">Intelligent Geo-Fencing Active</p>
+                     <p className="font-bold text-muted-foreground dark:text-slate-300">Intelligent Geo-Fencing Active</p>
                      <p className="text-xs text-muted-foreground mt-1 text-center max-w-xs">Connecting to hospital GPS network... Real-time vehicle coordinates rendered via WebSocket.</p>
                      <div className="mt-8 flex gap-4">
                         <FleetStats label="Fleet Active" value="85%" color="teal" />

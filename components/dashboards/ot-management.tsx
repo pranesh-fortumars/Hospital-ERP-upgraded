@@ -71,7 +71,7 @@ export default function OTManagement() {
                          </div>
                          <div className="p-3 rounded-xl bg-muted/30 border">
                             <p className="text-xs text-muted-foreground mb-1 uppercase tracking-widest font-bold">Procedure</p>
-                            <p className="text-sm font-bold text-gray-900">{ot.surgery}</p>
+                            <p className="text-sm font-bold text-foreground">{ot.surgery}</p>
                             <p className="text-[10px] text-primary font-medium mt-1">Surgeon: {ot.surgeon}</p>
                          </div>
                       </div>

@@ -245,7 +245,7 @@ export default function LabDashboard({ activeSection = null }: LabDashboardProps
       case "low":
         return "bg-yellow-100 text-yellow-800"
       default:
-        return "bg-gray-100 text-gray-800"
+        return "bg-gray-100 text-foreground"
     }
   }
 
@@ -259,54 +259,54 @@ export default function LabDashboard({ activeSection = null }: LabDashboardProps
     <div className="space-y-8">
       {shouldShow("lab-overview") && (
         <section id="lab-overview" className="space-y-2">
-        <h2 className="text-3xl font-bold text-gray-900">Lab Management</h2>
-        <p className="text-gray-600 mt-2">Manage lab tests, results, and inventory</p>
+        <h2 className="text-3xl font-bold text-foreground">Lab Management</h2>
+        <p className="text-muted-foreground mt-2">Manage lab tests, results, and inventory</p>
       </section>
       )}
 
       {shouldShow("lab-overview") && (
         <section aria-labelledby="lab-overview-stats">
         <div className="mb-4 flex items-center justify-between">
-          <h3 id="lab-overview-stats" className="text-sm font-semibold text-gray-600 uppercase tracking-wide">
+          <h3 id="lab-overview-stats" className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
             Quick Metrics
           </h3>
-          <span className="text-xs text-gray-500">Real-time laboratory snapshot</span>
+          <span className="text-xs text-muted-foreground">Real-time laboratory snapshot</span>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">Pending Tests</CardTitle>
+              <CardTitle className="text-sm font-medium text-muted-foreground">Pending Tests</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{pendingTests}</div>
-              <p className="text-xs text-gray-600 mt-1">To be processed</p>
+              <p className="text-xs text-muted-foreground mt-1">To be processed</p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">Completed Today</CardTitle>
+              <CardTitle className="text-sm font-medium text-muted-foreground">Completed Today</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{completedTests}</div>
-              <p className="text-xs text-gray-600 mt-1">Results ready</p>
+              <p className="text-xs text-muted-foreground mt-1">Results ready</p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">In Progress</CardTitle>
+              <CardTitle className="text-sm font-medium text-muted-foreground">In Progress</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{inProgressTests}</div>
-              <p className="text-xs text-gray-600 mt-1">Being analyzed</p>
+              <p className="text-xs text-muted-foreground mt-1">Being analyzed</p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium text-gray-600">Critical Results</CardTitle>
+              <CardTitle className="text-sm font-medium text-muted-foreground">Critical Results</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{criticalResults}</div>
-              <p className="text-xs text-gray-600 mt-1">Needs attention</p>
+              <p className="text-xs text-muted-foreground mt-1">Needs attention</p>
             </CardContent>
           </Card>
         </div>
@@ -330,22 +330,22 @@ export default function LabDashboard({ activeSection = null }: LabDashboardProps
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">Patient</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">Test Type</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">Date</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">Status</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">Result</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">Actions</th>
+                  <tr className="border-b border-border">
+                    <th className="text-left py-3 px-4 font-semibold text-foreground/90">Patient</th>
+                    <th className="text-left py-3 px-4 font-semibold text-foreground/90">Test Type</th>
+                    <th className="text-left py-3 px-4 font-semibold text-foreground/90">Date</th>
+                    <th className="text-left py-3 px-4 font-semibold text-foreground/90">Status</th>
+                    <th className="text-left py-3 px-4 font-semibold text-foreground/90">Result</th>
+                    <th className="text-left py-3 px-4 font-semibold text-foreground/90">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {tests.map((test) => (
-                    <tr key={test.id} className="border-b border-gray-100 hover:bg-gray-50">
+                    <tr key={test.id} className="border-b border-gray-100 hover:bg-muted/50">
                       <td className="py-3 px-4">
                         <div>
                           <p className="font-medium">{test.patientName}</p>
-                          <p className="text-xs text-gray-600">{test.patientId}</p>
+                          <p className="text-xs text-muted-foreground">{test.patientId}</p>
                         </div>
                       </td>
                       <td className="py-3 px-4">{test.testType}</td>
@@ -405,18 +405,18 @@ export default function LabDashboard({ activeSection = null }: LabDashboardProps
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-gray-200">
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">Item Name</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">Quantity</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">Min Stock</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">Expiry Date</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">Status</th>
-                    <th className="text-left py-3 px-4 font-semibold text-gray-700">Actions</th>
+                  <tr className="border-b border-border">
+                    <th className="text-left py-3 px-4 font-semibold text-foreground/90">Item Name</th>
+                    <th className="text-left py-3 px-4 font-semibold text-foreground/90">Quantity</th>
+                    <th className="text-left py-3 px-4 font-semibold text-foreground/90">Min Stock</th>
+                    <th className="text-left py-3 px-4 font-semibold text-foreground/90">Expiry Date</th>
+                    <th className="text-left py-3 px-4 font-semibold text-foreground/90">Status</th>
+                    <th className="text-left py-3 px-4 font-semibold text-foreground/90">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {inventory.map((item) => (
-                    <tr key={item.id} className="border-b border-gray-100 hover:bg-gray-50">
+                    <tr key={item.id} className="border-b border-gray-100 hover:bg-muted/50">
                       <td className="py-3 px-4 font-medium">{item.name}</td>
                       <td className="py-3 px-4">
                         {item.quantity} {item.unit}
@@ -557,7 +557,7 @@ export default function LabDashboard({ activeSection = null }: LabDashboardProps
                   value={testFormData.notes}
                   onChange={(e) => setTestFormData({ ...testFormData, notes: e.target.value })}
                   placeholder="Enter notes"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   rows={2}
                 />
               </div>

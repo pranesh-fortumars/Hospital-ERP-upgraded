@@ -187,7 +187,7 @@ export default function Patient360({ patientId = "P001" }: { patientId?: string 
                          <span className="text-[10px] px-2 py-0.5 rounded bg-muted text-muted-foreground">{item.date}</span>
                       </div>
                       <p className="text-xs text-muted-foreground mb-2">Attending: {item.doctor} • {item.type}</p>
-                      <p className="text-xs text-gray-700 dark:text-gray-300 bg-muted/30 p-2 rounded-lg">{item.notes}</p>
+                      <p className="text-xs text-foreground/90 dark:text-gray-300 bg-muted/30 p-2 rounded-lg">{item.notes}</p>
                    </div>
                 </div>
               ))}

@@ -201,10 +201,10 @@ export default function LoginPage() {
                       variant="outline"
                       size="sm"
                       onClick={() => handleDemoLogin(role as any)}
-                      className="group h-10 rounded-xl flex items-center justify-start gap-2 bg-white/20 hover:bg-white hover:border-primary border-white transition-all overflow-hidden relative"
+                      className="group h-10 rounded-xl flex items-center justify-start gap-2 bg-white/20 hover:bg-white hover:border-primary border-border transition-all overflow-hidden relative"
                     >
-                      <creds.icon className="h-4 w-4 text-slate-400 group-hover:text-primary transition-colors" />
-                      <span className="text-[10px] font-bold capitalize text-slate-600 group-hover:text-slate-900">{role.replace("_", " ")}</span>
+                      <creds.icon className="h-4 w-4 text-primary transition-colors flex-shrink-0" />
+                      <span className="text-[10px] font-bold capitalize text-foreground/80 group-hover:text-foreground">{role.replace("_", " ")}</span>
                     </Button>
                   ))}
                 </div>

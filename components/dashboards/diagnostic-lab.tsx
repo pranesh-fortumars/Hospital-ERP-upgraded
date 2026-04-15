@@ -109,7 +109,7 @@ export default function DiagnosticLab() {
                {equipmentStatus.map((machine) => (
                  <div key={machine.name} className="p-4 rounded-xl bg-background border shadow-sm space-y-3">
                     <div className="flex items-center justify-between">
-                       <span className="text-xs font-bold text-gray-700">{machine.name}</span>
+                       <span className="text-xs font-bold text-foreground/90">{machine.name}</span>
                        <Badge className={machine.status === 'online' ? 'bg-emerald-500' : 'bg-red-500'}>
                           {machine.status}
                        </Badge>

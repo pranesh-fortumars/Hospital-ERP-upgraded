@@ -175,7 +175,7 @@ export default function PharmacyInventory() {
                        </div>
                        <div className="flex-1">
                           <div className="flex items-center justify-between">
-                             <p className="text-sm font-bold text-gray-900 dark:text-gray-100">{tx.drug}</p>
+                             <p className="text-sm font-bold text-foreground dark:text-gray-100">{tx.drug}</p>
                              <span className={`text-sm font-bold ${tx.quantity < 0 ? 'text-red-500' : 'text-green-500'}`}>
                                 {tx.quantity > 0 ? '+' : ''}{tx.quantity}
                              </span>

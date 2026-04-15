@@ -83,7 +83,7 @@ export default function ClinicalResearch() {
                        </div>
                        <Badge className={`${
                           study.status === 'Recruiting' ? 'bg-blue-500' :
-                          study.status === 'Active' ? 'bg-emerald-500' : 'bg-slate-500'
+                          study.status === 'Active' ? 'bg-emerald-500' : 'bg-muted/500'
                        } text-white border-0`}>{study.status}</Badge>
                     </div>
                     
@@ -152,7 +152,7 @@ export default function ClinicalResearch() {
                   <h3 className="text-xl font-bold text-white">Advanced IRB Compliance</h3>
                   <p className="text-sm text-slate-400">Your institution is currently 99.8% compliant with Institutional Review Board (IRB) and HIPAA research standards.</p>
                   <div className="pt-4">
-                     <Button className="w-full bg-white text-slate-900 hover:bg-slate-200 rounded-xl font-bold">Download Compliance Report</Button>
+                     <Button className="w-full bg-white text-foreground hover:bg-slate-200 rounded-xl font-bold">Download Compliance Report</Button>
                      <p className="text-[10px] text-slate-500 text-center mt-3">Next audit scheduled for Dec 15, 2024</p>
                   </div>
                </CardContent>

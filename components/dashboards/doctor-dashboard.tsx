@@ -608,7 +608,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                     </thead>
                     <tbody>
                       {filteredConsultations.map((consultation) => (
-                        <tr key={consultation.id} className="border-b border-gray-100 hover:bg-gray-50">
+                        <tr key={consultation.id} className="border-b border-gray-100 hover:bg-muted/50">
                           <td className="py-3 px-4">
                             <div>
                               <p className="font-bold text-foreground">{consultation.patientName}</p>
@@ -644,7 +644,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                               {consultation.status}
                             </span>
                           </td>
-                          <td className="py-3 px-4 text-gray-600">{consultation.diagnosis || "-"}</td>
+                          <td className="py-3 px-4 text-muted-foreground">{consultation.diagnosis || "-"}</td>
                           <td className="py-3 px-4">
                             <div className="flex gap-2">
                               {consultation.status === "scheduled" && (
@@ -700,7 +700,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                 </div>
 
                 {filteredConsultations.length === 0 && (
-                  <div className="text-center py-8 text-gray-500">
+                  <div className="text-center py-8 text-muted-foreground">
                     <p>No consultations found.</p>
                   </div>
                 )}
@@ -740,29 +740,29 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
             <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               <Card>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-600">Patients Managed</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Patients Managed</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{patientRecords.length}</div>
-                  <p className="text-xs text-gray-600 mt-1">Active records in your care</p>
+                  <p className="text-xs text-muted-foreground mt-1">Active records in your care</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-600">Chronic Conditions</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Chronic Conditions</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{patientRecords.reduce((acc, record) => acc + record.conditions.length, 0)}</div>
-                  <p className="text-xs text-gray-600 mt-1">Across tracked patients</p>
+                  <p className="text-xs text-muted-foreground mt-1">Across tracked patients</p>
                 </CardContent>
               </Card>
               <Card>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-600">Upcoming Reviews</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">Upcoming Reviews</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">4</div>
-                  <p className="text-xs text-gray-600 mt-1">Suggested follow-ups this month</p>
+                  <p className="text-xs text-muted-foreground mt-1">Suggested follow-ups this month</p>
                 </CardContent>
               </Card>
             </div>
@@ -787,14 +787,14 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                     </thead>
                   <tbody>
                     {filteredPatientRecords.map((record) => (
-                      <tr key={record.id} className="border-b border-gray-100 hover:bg-gray-50">
+                      <tr key={record.id} className="border-b border-gray-100 hover:bg-muted/50">
                         <td className="py-3 px-4">
                           <div>
-                            <p className="font-medium text-gray-900">{record.patientName}</p>
-                            <p className="text-xs text-gray-600">ID: {record.patientId}</p>
+                            <p className="font-medium text-foreground">{record.patientName}</p>
+                            <p className="text-xs text-muted-foreground">ID: {record.patientId}</p>
                           </div>
                         </td>
-                        <td className="py-3 px-4 text-xs text-gray-600">
+                        <td className="py-3 px-4 text-xs text-muted-foreground">
                           <p>
                             Age {record.age}, {record.gender}
                           </p>
@@ -804,20 +804,20 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                             <p className="text-red-500">Allergies: {record.allergies.join(", ")}</p>
                           )}
                         </td>
-                        <td className="py-3 px-4 text-xs text-gray-600">
-                          <p className="font-medium text-gray-700">Conditions</p>
+                        <td className="py-3 px-4 text-xs text-muted-foreground">
+                          <p className="font-medium text-foreground/90">Conditions</p>
                           <ul className="list-disc ml-4 space-y-1">
                             {record.conditions.map((condition) => (
                               <li key={`${record.id}-${condition}`}>{condition}</li>
                             ))}
                           </ul>
-                          <p className="mt-2 text-gray-500">Notes: {record.notes}</p>
+                          <p className="mt-2 text-muted-foreground">Notes: {record.notes}</p>
                         </td>
-                        <td className="py-3 px-4 text-xs text-gray-600">
+                        <td className="py-3 px-4 text-xs text-muted-foreground">
                           <div className="space-y-2">
                             {record.recentPrescriptions.map((item, index) => (
-                              <div key={`${record.id}-recent-${index}`} className="rounded-md bg-gray-50 p-2">
-                                <p className="font-medium text-gray-800">{item.name}</p>
+                              <div key={`${record.id}-recent-${index}`} className="rounded-md bg-muted/50 p-2">
+                                <p className="font-medium text-foreground">{item.name}</p>
                                 <p>Dosage: {item.dosage}</p>
                                 <p>Frequency: {item.frequency}</p>
                                 <p>Duration: {item.duration}</p>
@@ -825,15 +825,15 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                             ))}
                           </div>
                         </td>
-                        <td className="py-3 px-4 text-xs text-gray-600">
+                        <td className="py-3 px-4 text-xs text-muted-foreground">
                           <p>{record.lastVisit}</p>
-                          <p className="text-gray-500">Next review: {new Date(record.lastVisit).getFullYear()}-12-15</p>
+                          <p className="text-muted-foreground">Next review: {new Date(record.lastVisit).getFullYear()}-12-15</p>
                         </td>
                       </tr>
                     ))}
                     {filteredPatientRecords.length === 0 && (
                       <tr>
-                        <td colSpan={5} className="py-8 text-center text-sm text-gray-500">
+                        <td colSpan={5} className="py-8 text-center text-sm text-muted-foreground">
                           No patient records match "{patientRecordQuery}".
                         </td>
                       </tr>
@@ -856,29 +856,29 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Active Prescriptions</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Active Prescriptions</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{activePrescriptionCount}</div>
-                <p className="text-xs text-gray-600 mt-1">Awaiting fulfilment</p>
+                <p className="text-xs text-muted-foreground mt-1">Awaiting fulfilment</p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Completed</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Completed</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{completedPrescriptionCount}</div>
-                <p className="text-xs text-gray-600 mt-1">Marked as fulfilled</p>
+                <p className="text-xs text-muted-foreground mt-1">Marked as fulfilled</p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Patients with Prescriptions</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Patients with Prescriptions</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{patientOptions.length}</div>
-                <p className="text-xs text-gray-600 mt-1">Currently receiving medication plans</p>
+                <p className="text-xs text-muted-foreground mt-1">Currently receiving medication plans</p>
               </CardContent>
             </Card>
           </div>
@@ -1011,7 +1011,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                     Add medication to list
                   </Button>
                   {(newPrescription.medications?.length ?? 0) > 0 && (
-                    <span className="text-xs text-gray-500">{newPrescription.medications?.length ?? 0} medication(s) added</span>
+                    <span className="text-xs text-muted-foreground">{newPrescription.medications?.length ?? 0} medication(s) added</span>
                   )}
                 </div>
 
@@ -1075,22 +1075,22 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-gray-200">
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Patient</th>
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Medication</th>
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Schedule</th>
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Status</th>
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Actions</th>
+                      <tr className="border-b border-border">
+                        <th className="py-3 px-4 text-left font-semibold text-foreground/90">Patient</th>
+                        <th className="py-3 px-4 text-left font-semibold text-foreground/90">Medication</th>
+                        <th className="py-3 px-4 text-left font-semibold text-foreground/90">Schedule</th>
+                        <th className="py-3 px-4 text-left font-semibold text-foreground/90">Status</th>
+                        <th className="py-3 px-4 text-left font-semibold text-foreground/90">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       {prescriptions.map((prescription) => (
-                        <tr key={prescription.id} className="border-b border-gray-100 hover:bg-gray-50">
+                        <tr key={prescription.id} className="border-b border-gray-100 hover:bg-muted/50">
                           <td className="py-3 px-4">
                             <div>
                               <p className="font-medium">{prescription.patientName}</p>
-                              <p className="text-xs text-gray-600">{prescription.patientId}</p>
-                              <p className="text-xs text-gray-500 mt-1 flex items-center gap-1">
+                              <p className="text-xs text-muted-foreground">{prescription.patientId}</p>
+                              <p className="text-xs text-muted-foreground mt-1 flex items-center gap-1">
                                 <Calendar className="h-3 w-3" /> {prescription.date}
                               </p>
                             </div>
@@ -1100,32 +1100,32 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                               {(prescription.medications ?? []).map((item, medIndex) => (
                                 <div key={`${prescription.id}-med-${medIndex}`}>
                                   <p className="font-medium">{item.name}</p>
-                                  <p className="text-xs text-gray-600">Dosage: {item.dosage}</p>
+                                  <p className="text-xs text-muted-foreground">Dosage: {item.dosage}</p>
                                 </div>
                               ))}
                               {(!prescription.medications || prescription.medications.length === 0) && (
                                 <div>
                                   <p className="font-medium">{prescription.medication}</p>
-                                  <p className="text-xs text-gray-600">Dosage: {prescription.dosage}</p>
+                                  <p className="text-xs text-muted-foreground">Dosage: {prescription.dosage}</p>
                                 </div>
                               )}
                               {prescription.instructions && (
-                                <p className="text-xs text-gray-500 mt-1">{prescription.instructions}</p>
+                                <p className="text-xs text-muted-foreground mt-1">{prescription.instructions}</p>
                               )}
                             </div>
                           </td>
-                          <td className="py-3 px-4 text-sm text-gray-600">
+                          <td className="py-3 px-4 text-sm text-muted-foreground">
                             <div className="space-y-2">
                               {(prescription.medications ?? []).map((item, medIndex) => (
-                                <div key={`${prescription.id}-schedule-${medIndex}`} className="text-xs text-gray-600">
-                                  <p className="font-medium text-gray-700">{item.frequency}</p>
-                                  <p className="text-gray-500">Duration: {item.duration}</p>
+                                <div key={`${prescription.id}-schedule-${medIndex}`} className="text-xs text-muted-foreground">
+                                  <p className="font-medium text-foreground/90">{item.frequency}</p>
+                                  <p className="text-muted-foreground">Duration: {item.duration}</p>
                                 </div>
                               ))}
                               {(!prescription.medications || prescription.medications.length === 0) && (
-                                <div className="text-xs text-gray-600">
+                                <div className="text-xs text-muted-foreground">
                                   <p>{prescription.frequency || "As directed"}</p>
-                                  <p className="text-gray-500">{prescription.duration || "Duration not specified"}</p>
+                                  <p className="text-muted-foreground">{prescription.duration || "Duration not specified"}</p>
                                 </div>
                               )}
                             </div>
@@ -1173,7 +1173,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                 </div>
 
                 {prescriptions.length === 0 && (
-                  <div className="py-10 text-center text-gray-500">
+                  <div className="py-10 text-center text-muted-foreground">
                     <p>No prescriptions created yet.</p>
                   </div>
                 )}
@@ -1280,7 +1280,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   placeholder="Enter consultation notes"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   rows={3}
                 />
               </div>

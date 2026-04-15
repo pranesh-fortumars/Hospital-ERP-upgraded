@@ -39,19 +39,19 @@ export default function HRDashboard({ activeSection = null }: HRDashboardProps) 
       {shouldShow("hr-overview") && (
         <section id="hr-overview" className="space-y-4">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">HR Management</h2>
-            <p className="text-gray-600 mt-2">Manage staff and human resources</p>
+            <h2 className="text-3xl font-bold text-foreground">HR Management</h2>
+            <p className="text-muted-foreground mt-2">Manage staff and human resources</p>
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
             {OVERVIEW_METRICS.map((metric) => (
               <Card key={metric.label}>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-600">{metric.label}</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">{metric.label}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="text-2xl font-bold">{metric.value}</div>
-                  <p className="text-xs text-gray-600 mt-1">{metric.description}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{metric.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -71,11 +71,11 @@ export default function HRDashboard({ activeSection = null }: HRDashboardProps) 
                 {STAFF_SEGMENTS.map((segment) => (
                   <div
                     key={segment.label}
-                    className="flex items-center justify-between rounded-lg bg-gray-50 p-4"
+                    className="flex items-center justify-between rounded-lg bg-muted/50 p-4"
                   >
                     <div>
                       <p className="font-medium">{segment.label}</p>
-                      <p className="text-sm text-gray-600">{segment.description}</p>
+                      <p className="text-sm text-muted-foreground">{segment.description}</p>
                     </div>
                     <span className={`text-2xl font-bold ${segment.accent}`}>{segment.value}</span>
                   </div>

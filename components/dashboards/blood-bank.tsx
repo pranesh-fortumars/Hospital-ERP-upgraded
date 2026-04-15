@@ -49,7 +49,7 @@ export default function BloodBank() {
                </div>
                <CardContent className="p-4 space-y-2">
                   <div className="flex items-center justify-between">
-                     <span className="text-2xl font-black text-slate-800 dark:text-white">{item.group}</span>
+                     <span className="text-2xl font-black text-foreground dark:text-white">{item.group}</span>
                      <Badge variant={item.status === 'Critical' || item.status === 'Emergency' ? 'destructive' : 'outline'} className="text-[10px] py-0">
                         {item.status}
                      </Badge>
@@ -148,7 +148,7 @@ export default function BloodBank() {
                         <p className="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Registrations today</p>
                      </div>
                   </div>
-                  <Button className="w-full bg-white text-slate-900 hover:bg-slate-200">View Public Landing</Button>
+                  <Button className="w-full bg-white text-foreground hover:bg-slate-200">View Public Landing</Button>
                </div>
             </CardContent>
          </Card>

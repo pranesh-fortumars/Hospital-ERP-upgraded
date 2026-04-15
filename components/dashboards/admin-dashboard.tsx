@@ -185,7 +185,7 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
       value: "6",
       hint: "Recruitment in progress",
       icon: Users,
-      color: "bg-slate-500",
+      color: "bg-muted/500",
     },
   ]
 
@@ -366,20 +366,20 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-gray-200">
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Name</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Email</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Role</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Department</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Status</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Actions</th>
+                      <tr className="border-b border-border">
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Name</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Email</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Role</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Department</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Status</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       {filteredUsers.map((user) => (
-                        <tr key={user.id} className="border-b border-gray-100 hover:bg-gray-50">
+                        <tr key={user.id} className="border-b border-gray-100 hover:bg-muted/50">
                           <td className="py-3 px-4">{user.name}</td>
-                          <td className="py-3 px-4 text-gray-600">{user.email}</td>
+                          <td className="py-3 px-4 text-muted-foreground">{user.email}</td>
                           <td className="py-3 px-4">
                             <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs font-medium">
                               {user.role.replace("_", " ")}
@@ -389,7 +389,7 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
                           <td className="py-3 px-4">
                             <span
                               className={`inline-block px-2 py-1 rounded text-xs font-medium ${
-                                user.status === "active" ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-800"
+                                user.status === "active" ? "bg-green-100 text-green-800" : "bg-gray-100 text-foreground"
                               }`}
                             >
                               {user.status}
@@ -422,7 +422,7 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
                 </div>
 
                 {filteredUsers.length === 0 && (
-                  <div className="text-center py-8 text-gray-500">
+                  <div className="text-center py-8 text-muted-foreground">
                     <p>No users found matching your search.</p>
                   </div>
                 )}
@@ -435,8 +435,8 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
       {shouldShow("admin-pharmacy") && (
         <section id="admin-pharmacy" className="space-y-6">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">Pharmacy Operations</h2>
-            <p className="text-gray-600 mt-2">
+            <h2 className="text-3xl font-bold text-foreground">Pharmacy Operations</h2>
+            <p className="text-muted-foreground mt-2">
               Track pharmacy sales performance, profitability, and staffing at a glance.
             </p>
           </div>
@@ -445,13 +445,13 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
             {pharmacyMetrics.map((metric) => (
               <Card key={metric.label}>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-600">{metric.label}</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">{metric.label}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <div className="text-2xl font-bold">{metric.value}</div>
-                      <p className="text-xs text-gray-600 mt-1">{metric.change}</p>
+                      <p className="text-xs text-muted-foreground mt-1">{metric.change}</p>
                     </div>
                     <div className={`${metric.color} rounded-lg p-3`}>
                       <metric.icon className="h-5 w-5 text-white" />
@@ -472,16 +472,16 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-gray-200">
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Medication</th>
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Units Sold</th>
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Revenue</th>
-                        <th className="py-3 px-4 text-left font-semibold text-gray-700">Stock</th>
+                      <tr className="border-b border-border">
+                        <th className="py-3 px-4 text-left font-semibold text-foreground/90">Medication</th>
+                        <th className="py-3 px-4 text-left font-semibold text-foreground/90">Units Sold</th>
+                        <th className="py-3 px-4 text-left font-semibold text-foreground/90">Revenue</th>
+                        <th className="py-3 px-4 text-left font-semibold text-foreground/90">Stock</th>
                       </tr>
                     </thead>
                     <tbody>
                       {topMedications.map((item) => (
-                        <tr key={item.name} className="border-b border-gray-100 hover:bg-gray-50">
+                        <tr key={item.name} className="border-b border-gray-100 hover:bg-muted/50">
                           <td className="py-3 px-4 font-medium">{item.name}</td>
                           <td className="py-3 px-4">{item.units}</td>
                           <td className="py-3 px-4">{item.revenue}</td>
@@ -516,18 +516,18 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
                   {pharmacyTeam.map((member) => (
                     <div
                       key={member.name}
-                      className="flex flex-col gap-1 rounded-lg border border-gray-100 bg-gray-50 p-4 sm:flex-row sm:items-center sm:justify-between"
+                      className="flex flex-col gap-1 rounded-lg border border-gray-100 bg-muted/50 p-4 sm:flex-row sm:items-center sm:justify-between"
                     >
                       <div>
-                        <p className="font-medium text-gray-900">{member.name}</p>
-                        <p className="text-sm text-gray-600">{member.role}</p>
+                        <p className="font-medium text-foreground">{member.name}</p>
+                        <p className="text-sm text-muted-foreground">{member.role}</p>
                       </div>
-                      <div className="flex gap-6 text-sm text-gray-600">
+                      <div className="flex gap-6 text-sm text-muted-foreground">
                         <span>
-                          <span className="font-medium text-gray-900">Shift:</span> {member.shift}
+                          <span className="font-medium text-foreground">Shift:</span> {member.shift}
                         </span>
                         <span>
-                          <span className="font-medium text-gray-900">Tenure:</span> {member.tenure}
+                          <span className="font-medium text-foreground">Tenure:</span> {member.tenure}
                         </span>
                       </div>
                     </div>
@@ -542,8 +542,8 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
       {shouldShow("admin-staff") && (
         <section id="admin-staff" className="space-y-6">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">Staff Overview</h2>
-            <p className="text-gray-600 mt-2">
+            <h2 className="text-3xl font-bold text-foreground">Staff Overview</h2>
+            <p className="text-muted-foreground mt-2">
               Monitor staffing levels, attendance, and departmental contacts across the hospital.
             </p>
           </div>
@@ -552,13 +552,13 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
             {staffSummary.map((item) => (
               <Card key={item.label}>
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-600">{item.label}</CardTitle>
+                  <CardTitle className="text-sm font-medium text-muted-foreground">{item.label}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-2xl font-bold">{item.value}</div>
-                      <p className="text-xs text-gray-600 mt-1">{item.hint}</p>
+                      <p className="text-xs text-muted-foreground mt-1">{item.hint}</p>
                     </div>
                     <div className={`${item.color} rounded-lg p-3`}>
                       <item.icon className="h-5 w-5 text-white" />
@@ -578,17 +578,17 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Department</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Head of Department</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Staff Count</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Shifts</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Contact</th>
+                    <tr className="border-b border-border">
+                      <th className="py-3 px-4 text-left font-semibold text-foreground/90">Department</th>
+                      <th className="py-3 px-4 text-left font-semibold text-foreground/90">Head of Department</th>
+                      <th className="py-3 px-4 text-left font-semibold text-foreground/90">Staff Count</th>
+                      <th className="py-3 px-4 text-left font-semibold text-foreground/90">Shifts</th>
+                      <th className="py-3 px-4 text-left font-semibold text-foreground/90">Contact</th>
                     </tr>
                   </thead>
                   <tbody>
                     {staffDirectory.map((dept) => (
-                      <tr key={dept.department} className="border-b border-gray-100 hover:bg-gray-50">
+                      <tr key={dept.department} className="border-b border-gray-100 hover:bg-muted/50">
                         <td className="py-3 px-4 font-medium">{dept.department}</td>
                         <td className="py-3 px-4">{dept.head}</td>
                         <td className="py-3 px-4">{dept.staffCount}</td>

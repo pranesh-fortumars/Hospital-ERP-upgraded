@@ -172,45 +172,45 @@ export default function ReceptionistDashboard({ activeSection = null }: Receptio
       {shouldShow("reception-overview") && (
         <section id="reception-overview" className="space-y-4">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">Receptionist Dashboard</h2>
-            <p className="text-gray-600 mt-2">Manage appointments and patient check-ins</p>
+            <h2 className="text-3xl font-bold text-foreground">Receptionist Dashboard</h2>
+            <p className="text-muted-foreground mt-2">Manage appointments and patient check-ins</p>
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Today's Check-ins</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Today's Check-ins</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{checkedInCount}</div>
-                <p className="text-xs text-gray-600 mt-1">Checked in</p>
+                <p className="text-xs text-muted-foreground mt-1">Checked in</p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Pending Appointments</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Pending Appointments</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{pendingCount}</div>
-                <p className="text-xs text-gray-600 mt-1">Waiting</p>
+                <p className="text-xs text-muted-foreground mt-1">Waiting</p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Completed Today</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Completed Today</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{completedCount}</div>
-                <p className="text-xs text-gray-600 mt-1">Finished</p>
+                <p className="text-xs text-muted-foreground mt-1">Finished</p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Total Appointments</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Total Appointments</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{appointments.length}</div>
-                <p className="text-xs text-gray-600 mt-1">All records</p>
+                <p className="text-xs text-muted-foreground mt-1">All records</p>
               </CardContent>
             </Card>
           </div>
@@ -244,28 +244,28 @@ export default function ReceptionistDashboard({ activeSection = null }: Receptio
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-gray-200">
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Patient</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Phone</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Doctor</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Date & Time</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Reason</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Status</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Actions</th>
+                      <tr className="border-b border-border">
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Patient</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Phone</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Doctor</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Date & Time</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Reason</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Status</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       {filteredAppointments.map((appointment) => (
-                        <tr key={appointment.id} className="border-b border-gray-100 hover:bg-gray-50">
+                        <tr key={appointment.id} className="border-b border-gray-100 hover:bg-muted/50">
                           <td className="py-3 px-4 font-medium">{appointment.patientName}</td>
-                          <td className="py-3 px-4 text-gray-600">{appointment.patientPhone}</td>
+                          <td className="py-3 px-4 text-muted-foreground">{appointment.patientPhone}</td>
                           <td className="py-3 px-4">{appointment.doctorName}</td>
                           <td className="py-3 px-4">
                             <div className="flex items-center gap-2">
                               <Calendar className="h-4 w-4 text-gray-400" />
                               <div>
                                 <p>{appointment.date}</p>
-                                <p className="text-xs text-gray-600">{appointment.time}</p>
+                                <p className="text-xs text-muted-foreground">{appointment.time}</p>
                               </div>
                             </div>
                           </td>
@@ -335,7 +335,7 @@ export default function ReceptionistDashboard({ activeSection = null }: Receptio
                 </div>
 
                 {filteredAppointments.length === 0 && (
-                  <div className="text-center py-8 text-gray-500">
+                  <div className="text-center py-8 text-muted-foreground">
                     <p>No appointments found.</p>
                   </div>
                 )}
@@ -440,7 +440,7 @@ export default function ReceptionistDashboard({ activeSection = null }: Receptio
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   placeholder="Enter any notes"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   rows={2}
                 />
               </div>

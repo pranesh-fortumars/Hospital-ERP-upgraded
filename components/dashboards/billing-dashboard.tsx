@@ -312,7 +312,7 @@ Status: ${invoice.status}
       case "pending":
         return "bg-yellow-100 text-yellow-800"
       default:
-        return "bg-gray-100 text-gray-800"
+        return "bg-gray-100 text-foreground"
     }
   }
 
@@ -323,47 +323,47 @@ Status: ${invoice.status}
       {shouldShow("billing-overview") && (
         <section id="billing-overview" className="space-y-4">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">Billing & Payments</h2>
-            <p className="text-gray-600 mt-2">Manage invoices, payments, and revenue</p>
+            <h2 className="text-3xl font-bold text-foreground">Billing & Payments</h2>
+            <p className="text-muted-foreground mt-2">Manage invoices, payments, and revenue</p>
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Total Revenue</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Total Revenue</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">₹{totalRevenue.toLocaleString()}</div>
-                <p className="text-xs text-gray-600 mt-1">
+                <p className="text-xs text-muted-foreground mt-1">
                   {invoices.filter((i) => i.status === "paid").length} paid invoices
                 </p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Pending Invoices</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Pending Invoices</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{pendingInvoices}</div>
-                <p className="text-xs text-gray-600 mt-1">₹{pendingAmount.toLocaleString()} due</p>
+                <p className="text-xs text-muted-foreground mt-1">₹{pendingAmount.toLocaleString()} due</p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Overdue Payments</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Overdue Payments</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{overdueInvoices}</div>
-                <p className="text-xs text-gray-600 mt-1">₹{overdueAmount.toLocaleString()} overdue</p>
+                <p className="text-xs text-muted-foreground mt-1">₹{overdueAmount.toLocaleString()} overdue</p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Total Invoices</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Total Invoices</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{invoices.length}</div>
-                <p className="text-xs text-gray-600 mt-1">{payments.length} payments received</p>
+                <p className="text-xs text-muted-foreground mt-1">{payments.length} payments received</p>
               </CardContent>
             </Card>
           </div>
@@ -397,24 +397,24 @@ Status: ${invoice.status}
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-gray-200">
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Invoice</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Patient</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Amount</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Date</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Due Date</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Status</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Actions</th>
+                      <tr className="border-b border-border">
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Invoice</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Patient</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Amount</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Date</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Due Date</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Status</th>
+                        <th className="text-left py-3 px-4 font-semibold text-foreground/90">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
                       {filteredInvoices.map((invoice) => (
-                        <tr key={invoice.id} className="border-b border-gray-100 hover:bg-gray-50">
+                        <tr key={invoice.id} className="border-b border-gray-100 hover:bg-muted/50">
                           <td className="py-3 px-4 font-medium">{invoice.invoiceNumber}</td>
                           <td className="py-3 px-4">
                             <div>
                               <p className="font-medium">{invoice.patientName}</p>
-                              <p className="text-xs text-gray-600">{invoice.patientId}</p>
+                              <p className="text-xs text-muted-foreground">{invoice.patientId}</p>
                             </div>
                           </td>
                           <td className="py-3 px-4 font-medium">₹{invoice.amount.toLocaleString()}</td>
@@ -476,7 +476,7 @@ Status: ${invoice.status}
                 </div>
 
                 {filteredInvoices.length === 0 && (
-                  <div className="text-center py-8 text-gray-500">
+                  <div className="text-center py-8 text-muted-foreground">
                     <p>No invoices found.</p>
                   </div>
                 )}
@@ -503,18 +503,18 @@ Status: ${invoice.status}
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Invoice</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Amount</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Date</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Method</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Status</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Actions</th>
+                    <tr className="border-b border-border">
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Invoice</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Amount</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Date</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Method</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Status</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {payments.map((payment) => (
-                      <tr key={payment.id} className="border-b border-gray-100 hover:bg-gray-50">
+                      <tr key={payment.id} className="border-b border-gray-100 hover:bg-muted/50">
                         <td className="py-3 px-4 font-medium">{payment.invoiceId}</td>
                         <td className="py-3 px-4 font-medium">₹{payment.amount.toLocaleString()}</td>
                         <td className="py-3 px-4">{payment.date}</td>
@@ -653,7 +653,7 @@ Status: ${invoice.status}
                   value={invoiceFormData.description}
                   onChange={(e) => setInvoiceFormData({ ...invoiceFormData, description: e.target.value })}
                   placeholder="Enter invoice description"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   rows={2}
                 />
               </div>
@@ -764,7 +764,7 @@ Status: ${invoice.status}
                   value={paymentFormData.notes}
                   onChange={(e) => setPaymentFormData({ ...paymentFormData, notes: e.target.value })}
                   placeholder="Enter payment notes"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   rows={2}
                 />
               </div>

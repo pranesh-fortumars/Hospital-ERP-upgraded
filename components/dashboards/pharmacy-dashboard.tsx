@@ -282,7 +282,7 @@ export default function PharmacyDashboard({ activeSection = null }: PharmacyDash
       case "low":
         return "bg-yellow-100 text-yellow-800"
       default:
-        return "bg-gray-100 text-gray-800"
+        return "bg-gray-100 text-foreground"
     }
   }
 
@@ -293,45 +293,45 @@ export default function PharmacyDashboard({ activeSection = null }: PharmacyDash
       {shouldShow("pharmacy-overview") && (
         <section id="pharmacy-overview" className="space-y-4">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">Pharmacy Management</h2>
-            <p className="text-gray-600 mt-2">Manage medications, prescriptions, and inventory</p>
+            <h2 className="text-3xl font-bold text-foreground">Pharmacy Management</h2>
+            <p className="text-muted-foreground mt-2">Manage medications, prescriptions, and inventory</p>
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Pending Prescriptions</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Pending Prescriptions</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{pendingPrescriptions}</div>
-                <p className="text-xs text-gray-600 mt-1">To be filled</p>
+                <p className="text-xs text-muted-foreground mt-1">To be filled</p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Total Medications</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Total Medications</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{totalMedications}</div>
-                <p className="text-xs text-gray-600 mt-1">In stock</p>
+                <p className="text-xs text-muted-foreground mt-1">In stock</p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Low Stock Items</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Low Stock Items</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{lowStockItems}</div>
-                <p className="text-xs text-gray-600 mt-1">Needs reorder</p>
+                <p className="text-xs text-muted-foreground mt-1">Needs reorder</p>
               </CardContent>
             </Card>
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Filled Today</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Filled Today</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">{filledToday}</div>
-                <p className="text-xs text-gray-600 mt-1">Prescriptions</p>
+                <p className="text-xs text-muted-foreground mt-1">Prescriptions</p>
               </CardContent>
             </Card>
           </div>
@@ -355,22 +355,22 @@ export default function PharmacyDashboard({ activeSection = null }: PharmacyDash
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Patient</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Medication</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Quantity</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Dosage</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Status</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Actions</th>
+                    <tr className="border-b border-border">
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Patient</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Medication</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Quantity</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Dosage</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Status</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {prescriptions.map((prescription) => (
-                      <tr key={prescription.id} className="border-b border-gray-100 hover:bg-gray-50">
+                      <tr key={prescription.id} className="border-b border-gray-100 hover:bg-muted/50">
                         <td className="py-3 px-4 font-medium">{prescription.patientName}</td>
                         <td className="py-3 px-4">{prescription.medication}</td>
                         <td className="py-3 px-4">{prescription.quantity}</td>
-                        <td className="py-3 px-4 text-gray-600">{prescription.dosage}</td>
+                        <td className="py-3 px-4 text-muted-foreground">{prescription.dosage}</td>
                         <td className="py-3 px-4">
                           <span
                             className={`inline-block px-2 py-1 rounded text-xs font-medium ${getStatusColor(prescription.status)}`}
@@ -435,19 +435,19 @@ export default function PharmacyDashboard({ activeSection = null }: PharmacyDash
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Medication</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Quantity</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Min Stock</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Price</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Expiry</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Status</th>
-                      <th className="text-left py-3 px-4 font-semibold text-gray-700">Actions</th>
+                    <tr className="border-b border-border">
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Medication</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Quantity</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Min Stock</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Price</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Expiry</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Status</th>
+                      <th className="text-left py-3 px-4 font-semibold text-foreground/90">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {inventory.map((item) => (
-                      <tr key={item.id} className="border-b border-gray-100 hover:bg-gray-50">
+                      <tr key={item.id} className="border-b border-gray-100 hover:bg-muted/50">
                         <td className="py-3 px-4 font-medium">{item.name}</td>
                         <td className="py-3 px-4">
                           {item.quantity} {item.unit}
@@ -581,7 +581,7 @@ export default function PharmacyDashboard({ activeSection = null }: PharmacyDash
                   value={prescriptionFormData.notes}
                   onChange={(e) => setPrescriptionFormData({ ...prescriptionFormData, notes: e.target.value })}
                   placeholder="Enter notes"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-border rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary"
                   rows={2}
                 />
               </div>
