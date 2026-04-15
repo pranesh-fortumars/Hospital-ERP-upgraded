@@ -30,6 +30,10 @@ import {
   TrendingUp,
   Monitor,
   Sparkles,
+  Pill,
+  Siren,
+  Droplets,
+  Beaker,
 } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import {
@@ -84,16 +88,30 @@ const COMMON_SECTIONS: SidebarSection[] = [
 const ROLE_SPECIFIC_SECTIONS: Record<string, SidebarSection[]> = {
   admin: [
     {
-      title: "Administration",
+      title: "Enterprise Core",
       items: [
-        { label: "Overview", icon: LayoutDashboard, value: "admin-overview" },
-        { label: "User Management", icon: Users, value: "admin-users" },
-        { label: "Enterprise Analytics", icon: TrendingUp, value: "admin-analytics" },
-        { label: "Operations Control", icon: Hospital, value: "admin-operations" },
-        { label: "OT & ICU Monitor", icon: Monitor, value: "admin-ot" },
+        { label: "Executive Overview", icon: LayoutDashboard, value: "admin-overview" },
+        { label: "Entity Analytics", icon: TrendingUp, value: "admin-analytics" },
         { label: "Security & Audit", icon: ShieldCheck, value: "admin-audit" },
-        { label: "Pharmacy Insights", icon: LineChart, value: "admin-pharmacy" },
-        { label: "Staff Insights", icon: Users, value: "admin-staff" },
+        { label: "User Directory", icon: Users, value: "admin-users" },
+      ],
+    },
+    {
+      title: "Entity Operations",
+      items: [
+        { label: "Hospital Ops", icon: Hospital, value: "admin-operations" },
+        { label: "OT & ICU Command", icon: Monitor, value: "admin-ot" },
+        { label: "Emergency Dispatch", icon: Siren, value: "admin-fleet" },
+        { label: "Staff Intelligence", icon: Users, value: "admin-staff" },
+      ],
+    },
+    {
+      title: "Clinical Services",
+      items: [
+        { label: "Pharmacy Inventory", icon: Pill, value: "admin-pharmacy" },
+        { label: "Diagnostic Lab", icon: TestTube, value: "admin-lab" },
+        { label: "Blood Bank", icon: Droplets, value: "admin-blood" },
+        { label: "Clinical Research", icon: Beaker, value: "admin-research" },
       ],
     },
   ],

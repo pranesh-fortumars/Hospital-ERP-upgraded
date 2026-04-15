@@ -29,6 +29,10 @@ import EnterpriseAnalytics from "@/components/dashboards/enterprise-analytics"
 import SecurityAuditLogs from "@/components/dashboards/security-audit-logs"
 import HospitalOperations from "@/components/dashboards/hospital-operations"
 import OTManagement from "@/components/dashboards/ot-management"
+import EmergencyFleet from "@/components/dashboards/emergency-fleet"
+import PharmacyInventory from "@/components/dashboards/pharmacy-inventory"
+import BloodBank from "@/components/dashboards/blood-bank"
+import ClinicalResearch from "@/components/dashboards/clinical-research"
 
 interface User {
   id: string
@@ -288,6 +292,22 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
 
   if (activeSection === "admin-ot") {
     return <OTManagement />
+  }
+
+  if (activeSection === "admin-fleet") {
+    return <EmergencyFleet />
+  }
+
+  if (activeSection === "admin-pharmacy") {
+    return <PharmacyInventory />
+  }
+
+  if (activeSection === "admin-blood") {
+    return <BloodBank />
+  }
+
+  if (activeSection === "admin-research") {
+    return <ClinicalResearch />
   }
 
   return (
