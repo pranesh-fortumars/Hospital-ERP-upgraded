@@ -525,45 +525,45 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
       {shouldShow("doctor-overview") && (
         <section id="doctor-overview" className="space-y-4">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">Doctor Dashboard</h2>
-            <p className="text-gray-600 mt-2">Manage your appointments and patient consultations</p>
+            <h2 className="text-3xl font-bold text-foreground">Doctor Dashboard</h2>
+            <p className="text-muted-foreground mt-2">Manage your appointments and patient consultations</p>
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-            <Card>
+            <Card className="glass-card">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Today's Appointments</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Today's Appointments</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{todayConsultations.length}</div>
-                <p className="text-xs text-gray-600 mt-1">{completedCount} completed</p>
+                <div className="text-2xl font-bold text-foreground">{todayConsultations.length}</div>
+                <p className="text-xs text-muted-foreground mt-1">{completedCount} completed</p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="glass-card">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Pending Reports</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Pending Reports</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{consultations.filter((c) => c.status === "scheduled").length}</div>
-                <p className="text-xs text-gray-600 mt-1">To be reviewed</p>
+                <div className="text-2xl font-bold text-foreground">{consultations.filter((c) => c.status === "scheduled").length}</div>
+                <p className="text-xs text-muted-foreground mt-1">To be reviewed</p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="glass-card">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Total Patients</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Total Patients</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{totalPatients}</div>
-                <p className="text-xs text-gray-600 mt-1">Under your care</p>
+                <div className="text-2xl font-bold text-foreground">{totalPatients}</div>
+                <p className="text-xs text-muted-foreground mt-1">Under your care</p>
               </CardContent>
             </Card>
-            <Card>
+            <Card className="glass-card">
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium text-gray-600">Consultations</CardTitle>
+                <CardTitle className="text-sm font-medium text-muted-foreground">Consultations</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{consultations.length}</div>
-                <p className="text-xs text-gray-600 mt-1">Total records</p>
+                <div className="text-2xl font-bold text-foreground">{consultations.length}</div>
+                <p className="text-xs text-muted-foreground mt-1">Total records</p>
               </CardContent>
             </Card>
           </div>
@@ -596,14 +596,14 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
 
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
-                    <thead>
-                      <tr className="border-b border-gray-200">
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Patient</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Date & Time</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Type</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Status</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Diagnosis</th>
-                        <th className="text-left py-3 px-4 font-semibold text-gray-700">Actions</th>
+                    <thead className="bg-muted/50 transition-colors">
+                      <tr className="border-b border-border">
+                        <th className="text-left py-3 px-4 font-bold text-muted-foreground uppercase text-[10px] tracking-wider">Patient</th>
+                        <th className="text-left py-3 px-4 font-bold text-muted-foreground uppercase text-[10px] tracking-wider">Date & Time</th>
+                        <th className="text-left py-3 px-4 font-bold text-muted-foreground uppercase text-[10px] tracking-wider">Type</th>
+                        <th className="text-left py-3 px-4 font-bold text-muted-foreground uppercase text-[10px] tracking-wider">Status</th>
+                        <th className="text-left py-3 px-4 font-bold text-muted-foreground uppercase text-[10px] tracking-wider">Diagnosis</th>
+                        <th className="text-left py-3 px-4 font-bold text-muted-foreground uppercase text-[10px] tracking-wider">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -611,16 +611,16 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                         <tr key={consultation.id} className="border-b border-gray-100 hover:bg-gray-50">
                           <td className="py-3 px-4">
                             <div>
-                              <p className="font-medium">{consultation.patientName}</p>
-                              <p className="text-xs text-gray-600">{consultation.patientId}</p>
+                              <p className="font-bold text-foreground">{consultation.patientName}</p>
+                              <p className="text-xs text-muted-foreground">{consultation.patientId}</p>
                             </div>
                           </td>
                           <td className="py-3 px-4">
                             <div className="flex items-center gap-2">
-                              <Calendar className="h-4 w-4 text-gray-400" />
-                              <div>
-                                <p>{consultation.date}</p>
-                                <p className="text-xs text-gray-600">{consultation.time}</p>
+                              <Calendar className="h-4 w-4 text-muted-foreground" />
+                              <div className="text-xs">
+                                <p className="font-medium">{consultation.date}</p>
+                                <p className="text-muted-foreground">{consultation.time}</p>
                               </div>
                             </div>
                           </td>
@@ -714,13 +714,13 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
         <section id="doctor-patient-records" className="space-y-6">
           <div className="flex flex-col gap-2">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900">Patient Records</h2>
-              <p className="text-gray-600 mt-2">Review patient demographics, histories, and previous prescriptions.</p>
+              <h2 className="text-3xl font-bold text-foreground">Patient Records</h2>
+              <p className="text-muted-foreground mt-2">Review patient demographics, histories, and previous prescriptions.</p>
             </div>
-            <div className="flex flex-col gap-3 rounded-lg border border-dashed border-gray-200 bg-gray-50 p-4 md:flex-row md:items-center md:justify-between">
+            <div className="flex flex-col gap-3 rounded-2xl border border-dashed border-primary/20 bg-primary/5 p-4 md:flex-row md:items-center md:justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-700">Search patient records</p>
-                <p className="text-xs text-gray-500">Filter by name or patient ID to quickly locate history.</p>
+                <p className="text-sm font-bold text-foreground">Search patient records</p>
+                <p className="text-xs text-muted-foreground">Filter by name or patient ID to quickly locate history.</p>
               </div>
               <div className="flex w-full gap-3 md:w-auto">
                 <Input
@@ -776,15 +776,15 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
             <CardContent>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-gray-200">
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Patient</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Demographics</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Medical History</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Recent Prescriptions</th>
-                      <th className="py-3 px-4 text-left font-semibold text-gray-700">Last Visit</th>
-                    </tr>
-                  </thead>
+                    <thead className="bg-muted/50 transition-colors">
+                      <tr className="border-b border-border">
+                        <th className="py-3 px-4 text-left font-bold text-muted-foreground uppercase text-[10px] tracking-wider">Patient</th>
+                        <th className="py-3 px-4 text-left font-bold text-muted-foreground uppercase text-[10px] tracking-wider">Demographics</th>
+                        <th className="py-3 px-4 text-left font-bold text-muted-foreground uppercase text-[10px] tracking-wider">Medical History</th>
+                        <th className="py-3 px-4 text-left font-bold text-muted-foreground uppercase text-[10px] tracking-wider">Recent Prescriptions</th>
+                        <th className="py-3 px-4 text-left font-bold text-muted-foreground uppercase text-[10px] tracking-wider">Last Visit</th>
+                      </tr>
+                    </thead>
                   <tbody>
                     {filteredPatientRecords.map((record) => (
                       <tr key={record.id} className="border-b border-gray-100 hover:bg-gray-50">
@@ -884,7 +884,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
           </div>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <Card>
+            <Card className="glass-card">
               <CardHeader>
                 <CardTitle>Create Prescription</CardTitle>
                 <CardDescription>Select a patient and add medication details</CardDescription>
@@ -1016,15 +1016,15 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                 </div>
 
                 {(newPrescription.medications?.length ?? 0) > 0 && (
-                  <div className="flex flex-wrap gap-2 rounded-md border border-dashed border-gray-300 bg-gray-50 p-3">
+                  <div className="flex flex-wrap gap-2 rounded-xl border border-dashed border-primary/20 bg-primary/5 p-3">
                     {(newPrescription.medications ?? []).map((item, index) => (
                       <div
                         key={`${item.name}-${index}`}
-                        className="flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs shadow-sm"
+                        className="flex items-center gap-2 rounded-full bg-background/80 backdrop-blur-sm border border-border px-3 py-1.5 text-xs shadow-sm"
                       >
-                        <span className="font-medium text-gray-700">{item.name}</span>
-                        <span className="text-gray-500">{item.dosage}</span>
-                        <span className="text-gray-400">{item.frequency}</span>
+                        <span className="font-bold text-foreground">{item.name}</span>
+                        <span className="text-muted-foreground">{item.dosage}</span>
+                        <span className="text-muted-foreground/70">{item.frequency}</span>
                         <span className="text-gray-400">{item.duration}</span>
                         <Button
                           type="button"
@@ -1046,7 +1046,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                     id="instructions"
                     rows={3}
                     placeholder="Any additional instructions for the patient"
-                    className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full rounded-xl border border-input bg-background/50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
                     value={newPrescription.instructions}
                     onChange={(e) =>
                       setNewPrescription((prev) => ({
@@ -1057,7 +1057,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                   />
                 </div>
 
-                <Button onClick={handleAddPrescription} className="w-full gap-2">
+                <Button onClick={handleAddPrescription} className="w-full gap-2 bg-primary text-white hover:bg-primary/90 rounded-xl h-11 font-bold shadow-lg shadow-primary/20">
                   <Plus className="h-4 w-4" />
                   Add Prescription
                 </Button>
@@ -1184,10 +1184,10 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
       )}
 
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <Card className="w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-            <CardHeader className="flex flex-row items-center justify-between sticky top-0 bg-white">
-              <CardTitle>{editingConsultation ? "Edit Consultation" : "New Consultation"}</CardTitle>
+        <div className="fixed inset-0 bg-background/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-in fade-in duration-300">
+          <Card className="w-full max-w-2xl max-h-[90vh] overflow-y-auto glass-card shadow-2xl border-primary/20">
+            <CardHeader className="flex flex-row items-center justify-between sticky top-0 bg-background/90 backdrop-blur-md z-10 border-b border-border/50">
+              <CardTitle className="text-xl font-bold">{editingConsultation ? "Edit Consultation" : "New Consultation"}</CardTitle>
               <Button variant="ghost" size="sm" onClick={handleCloseModal} className="h-8 w-8 p-0">
                 <X className="h-4 w-4" />
               </Button>
@@ -1302,17 +1302,17 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                   value={formData.prescription}
                   onChange={(e) => setFormData({ ...formData, prescription: e.target.value })}
                   placeholder="Enter prescription details"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-input bg-background/50 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
                   rows={3}
                 />
               </div>
 
-              <div className="flex gap-2 pt-4">
-                <Button variant="outline" onClick={handleCloseModal} className="flex-1 bg-transparent">
+              <div className="flex gap-3 pt-4">
+                <Button variant="outline" onClick={handleCloseModal} className="flex-1 rounded-xl h-11 font-bold">
                   Cancel
                 </Button>
-                <Button onClick={handleSaveConsultation} className="flex-1">
-                  {editingConsultation ? "Update Consultation" : "Create Consultation"}
+                <Button onClick={handleSaveConsultation} className="flex-1 bg-primary text-white hover:bg-primary/90 rounded-xl h-11 font-bold shadow-lg shadow-primary/20">
+                  {editingConsultation ? "Update Patient Record" : "Create Consultation"}
                 </Button>
               </div>
             </CardContent>
