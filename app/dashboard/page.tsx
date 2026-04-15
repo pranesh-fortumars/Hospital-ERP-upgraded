@@ -287,12 +287,14 @@ export default function DashboardPage() {
       <SidebarInset className="p-4 md:p-6">
         <div className="space-y-6">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-            <div className="flex items-center gap-2">
-              <SidebarTrigger className="md:hidden" />
+            <div className="flex items-center gap-4">
+              <SidebarTrigger className="h-10 w-10 rounded-xl bg-background border shadow-sm hover:bg-muted transition-all" />
               <div>
-                <h1 className="text-2xl font-bold tracking-tight md:text-3xl">Hospital ERP Dashboard</h1>
-                <p className="text-sm text-muted-foreground">
-                  Manage hospital operations with role-specific tools and insights.
+                <h1 className="text-2xl font-black tracking-tight md:text-3xl text-foreground">
+                  Hospital <span className="text-primary">ERP</span>
+                </h1>
+                <p className="text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                  Enterprise Management Hub
                 </p>
               </div>
             </div>
@@ -331,32 +333,40 @@ function DashboardSidebar({ sections, onLogout, userEmail, activeSection, onSect
   }
 
   return (
-    <Sidebar variant="inset" collapsible="icon" className="border-r border-border bg-background">
-      <SidebarHeader className="space-y-3">
-        <div className="flex items-center gap-2 px-3 py-2">
-          <Hospital className="h-6 w-6 text-primary" />
-          <div>
-            <p className="text-sm font-semibold">Hospital ERP</p>
-            <p className="text-xs text-muted-foreground">Unified operations platform</p>
+    <Sidebar variant="floating" collapsible="icon" className="border-r border-border bg-background/80 backdrop-blur-xl">
+      <SidebarHeader className="h-20 flex flex-row items-center justify-between px-4 border-b border-border/50">
+        <div className="flex items-center gap-3 overflow-hidden transition-all duration-300 group-data-[collapsible=icon]:w-0 group-data-[collapsible=icon]:opacity-0">
+          <div className="h-10 w-10 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20 shrink-0">
+             <Hospital className="h-6 w-6 text-white" />
           </div>
+          <div className="flex flex-col">
+            <p className="text-sm font-black tracking-tight whitespace-nowrap">FORTUMARS</p>
+            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest whitespace-nowrap">Health Sys</p>
+          </div>
+        </div>
+        <div className="group-data-[collapsible=icon]:mx-auto transition-all duration-300">
+           <SidebarTrigger className="h-8 w-8 rounded-lg hover:bg-muted p-0 shrink-0" />
         </div>
       </SidebarHeader>
       <SidebarContent>
         {sections.map((section) => (
-          <SidebarGroup key={section.title}>
-            <SidebarGroupLabel>{section.title}</SidebarGroupLabel>
+          <SidebarGroup key={section.title} className="group-data-[collapsible=icon]:items-center">
+            <SidebarGroupLabel className="group-data-[collapsible=icon]:hidden px-4 mb-2 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground/50">
+               {section.title}
+            </SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
                 {section.items.map((item) => (
-                  <SidebarMenuItem key={item.label}>
+                  <SidebarMenuItem key={item.label} className="px-2">
                     <SidebarMenuButton
                       type="button"
-                      className="justify-start"
+                      className="h-11 rounded-xl transition-all duration-200 hover:bg-primary/5 active:scale-[0.98] group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-0"
                       isActive={!!item.value && activeSection === item.value}
                       onClick={() => handleNavigate(item.value)}
+                      tooltip={item.label}
                     >
-                      <item.icon className="h-4 w-4" />
-                      <span>{item.label}</span>
+                      <item.icon className={`h-4.5 w-4.5 transition-colors ${!!item.value && activeSection === item.value ? 'text-primary' : 'text-muted-foreground group-hover:text-foreground'}`} />
+                      <span className="font-bold text-sm tracking-tight group-data-[collapsible=icon]:hidden">{item.label}</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
@@ -365,19 +375,24 @@ function DashboardSidebar({ sections, onLogout, userEmail, activeSection, onSect
           </SidebarGroup>
         ))}
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className="p-4 border-t border-border/50">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton type="button" onClick={onLogout} className="justify-start">
-              <LogOut className="h-4 w-4" />
-              <span>Logout</span>
+            <SidebarMenuButton 
+              type="button" 
+              onClick={onLogout} 
+              className="h-11 rounded-xl text-red-500 hover:text-red-600 hover:bg-red-50 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-0"
+              tooltip="Logout"
+            >
+              <LogOut className="h-4.5 w-4.5" />
+              <span className="font-bold group-data-[collapsible=icon]:hidden">Secure Logout</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
         {userEmail && (
-          <div className="rounded-md border border-border bg-muted/50 px-3 py-2 text-xs">
-            <p className="font-medium">Signed in as</p>
-            <p className="truncate text-muted-foreground">{userEmail}</p>
+          <div className="mt-4 rounded-xl border border-border bg-muted/30 p-3 overflow-hidden transition-all duration-300 group-data-[collapsible=icon]:h-0 group-data-[collapsible=icon]:opacity-0 group-data-[collapsible=icon]:p-0 group-data-[collapsible=icon]:mt-0">
+            <p className="text-[10px] font-black uppercase tracking-widest text-muted-foreground/60 mb-1">Session Active</p>
+            <p className="truncate font-bold text-sm">{userEmail}</p>
           </div>
         )}
       </SidebarFooter>
