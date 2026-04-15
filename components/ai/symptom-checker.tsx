@@ -15,6 +15,7 @@ import {
   AlertCircle,
   BrainCircuit
 } from "lucide-react"
+import { toast } from "sonner"
 
 const symptomsList = [
   "Headache", "Fever", "Cough", "Dizziness", "Fatigue", "Nausea", "Shortness of breath", "Chest pain", "Muscle ache"
@@ -44,6 +45,9 @@ export default function SymptomChecker() {
         recommendation: "Book a consultation with a General Physician. Stay hydrated and monitor temperature.",
         doctor: "Dr. Sarah Wilson (General Medicine)",
         urgency: "Moderate"
+      })
+      toast.success("AI Analysis Complete", {
+        description: "Preliminary results are ready for your review."
       })
     }, 2000)
   }
@@ -164,7 +168,10 @@ export default function SymptomChecker() {
                                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-0.5">Available today: 04:00 PM</p>
                                 </div>
                              </div>
-                             <Button className="w-full h-12 rounded-xl font-bold shadow-lg shadow-primary/20 bg-primary text-white hover:bg-primary/90">
+                             <Button 
+                                onClick={() => toast.success("Appointment Scheduled", { description: "You will receive a confirmation SMS shortly." })}
+                                className="w-full h-12 rounded-xl font-bold shadow-lg shadow-primary/20 bg-primary text-white hover:bg-primary/90"
+                             >
                                 Book Instant Appointment
                              </Button>
                           </div>

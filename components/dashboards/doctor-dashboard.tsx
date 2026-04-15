@@ -4,6 +4,8 @@ import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Badge } from "@/components/ui/badge"
+import { toast } from "sonner"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Calendar, Plus, Edit2, Trash2, X, CheckCircle, Clock, Video, Sparkles, UserCheck } from "lucide-react"
@@ -275,12 +277,14 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
 
     if (editingConsultation) {
       setConsultations(consultations.map((c) => (c.id === editingConsultation.id ? { ...c, ...formData } : c)))
+      toast.success("Consultation updated successfully.")
     } else {
       const newConsultation: Consultation = {
         id: Date.now().toString(),
         ...formData,
       }
       setConsultations([...consultations, newConsultation])
+      toast.success("Consultation scheduled successfully.")
     }
 
     handleCloseModal()
@@ -289,11 +293,13 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
   const handleDeleteConsultation = (id: string) => {
     if (confirm("Are you sure you want to delete this consultation?")) {
       setConsultations(consultations.filter((c) => c.id !== id))
+      toast.info("Consultation deleted.")
     }
   }
 
   const handleCompleteConsultation = (id: string) => {
     setConsultations(consultations.map((c) => (c.id === id ? { ...c, status: "completed" } : c)))
+    toast.success("Consultation marked as completed.")
   }
 
   const handleSelectPrescriptionPatient = (value: string) => {
@@ -400,15 +406,20 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
 
     setPrescriptions((prev) => [prescription, ...prev])
     setNewPrescription(createDefaultPrescriptionForm())
+    toast.success("Prescription generated successfully.", {
+      description: "Direct link sent to pharmacy wing.",
+    })
   }
 
   const handleCompletePrescription = (id: string) => {
     setPrescriptions((prev) => prev.map((prescription) => (prescription.id === id ? { ...prescription, status: "completed" } : prescription)))
+    toast.success("Prescription marked as completed.")
   }
 
   const handleDeletePrescription = (id: string) => {
     if (confirm("Remove this prescription?")) {
       setPrescriptions((prev) => prev.filter((prescription) => prescription.id !== id))
+      toast.info("Prescription removed.")
     }
   }
 

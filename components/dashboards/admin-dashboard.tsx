@@ -25,6 +25,7 @@ import {
   Activity,
   UserCog
 } from "lucide-react"
+import { toast } from "sonner"
 import EnterpriseAnalytics from "@/components/dashboards/enterprise-analytics"
 import SecurityAuditLogs from "@/components/dashboards/security-audit-logs"
 import HospitalOperations from "@/components/dashboards/hospital-operations"
@@ -258,6 +259,7 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
 
     if (editingUser) {
       setUsers(users.map((u) => (u.id === editingUser.id ? { ...u, ...formData } : u)))
+      toast.success("User access updated.")
     } else {
       const newUser: User = {
         id: Date.now().toString(),
@@ -265,6 +267,7 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
         joinDate: new Date().toISOString().split("T")[0],
       }
       setUsers([...users, newUser])
+      toast.success("Identity provisioned successfully.")
     }
 
     handleCloseModal()
@@ -273,6 +276,7 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
   const handleDeleteUser = (id: string) => {
     if (confirm("Are you sure you want to delete this user?")) {
       setUsers(users.filter((u) => u.id !== id))
+      toast.info("User access revoked.")
     }
   }
 
