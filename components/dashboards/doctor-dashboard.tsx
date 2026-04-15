@@ -849,8 +849,8 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
       {shouldShow("doctor-prescriptions") && (
         <section id="doctor-prescriptions" className="space-y-6">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">Prescriptions</h2>
-            <p className="text-gray-600 mt-2">Create and manage patient medication plans.</p>
+            <h2 className="text-3xl font-bold text-foreground">Prescriptions</h2>
+            <p className="text-muted-foreground mt-2">Create and manage patient medication plans.</p>
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
