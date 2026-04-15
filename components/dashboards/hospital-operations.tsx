@@ -49,7 +49,7 @@ export default function HospitalOperations() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader className="py-4">
                <div className="flex items-center gap-2">
                   <Bed className="h-5 w-5 text-primary" />
@@ -67,7 +67,7 @@ export default function HospitalOperations() {
             </CardContent>
          </Card>
 
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader className="py-4">
                <div className="flex items-center gap-2">
                   <UserCheck className="h-5 w-5 text-teal-500" />
@@ -85,7 +85,7 @@ export default function HospitalOperations() {
             </CardContent>
          </Card>
 
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader className="py-4">
                <div className="flex items-center gap-2">
                   <Clock className="h-5 w-5 text-orange-500" />
@@ -105,7 +105,7 @@ export default function HospitalOperations() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader>
                <CardTitle>Ward Occupancy</CardTitle>
                <CardDescription>Detailed bed allocation by department</CardDescription>
@@ -133,7 +133,7 @@ export default function HospitalOperations() {
             </CardContent>
          </Card>
 
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader>
                <CardTitle>Staffing Snapshot</CardTitle>
                <CardDescription>Current workforce distribution</CardDescription>
@@ -177,7 +177,7 @@ export default function HospitalOperations() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-         <Card className="glass-card bg-primary text-white border-none shadow-xl shadow-primary/20">
+         <Card className="enterprise-card bg-primary text-white border-none shadow-xl shadow-primary/20">
             <CardContent className="p-6 flex items-center gap-6">
                <div className="h-14 w-14 rounded-2xl bg-white/20 flex items-center justify-center">
                   <Building2 className="h-8 w-8 text-white" />

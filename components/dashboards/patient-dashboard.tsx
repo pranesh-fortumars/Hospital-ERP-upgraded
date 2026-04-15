@@ -168,7 +168,7 @@ export default function PatientDashboard({ activeSection = null }: PatientDashbo
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-            <Card className="glass-card transition-all hover:scale-[1.02]">
+            <Card className="enterprise-card transition-all hover:scale-[1.02]">
               <CardHeader className="pb-2">
                 <CardTitle className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Upcoming</CardTitle>
               </CardHeader>
@@ -179,7 +179,7 @@ export default function PatientDashboard({ activeSection = null }: PatientDashbo
                 </p>
               </CardContent>
             </Card>
-            <Card className="glass-card transition-all hover:scale-[1.02]">
+            <Card className="enterprise-card transition-all hover:scale-[1.02]">
               <CardHeader className="pb-2">
                 <CardTitle className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Records</CardTitle>
               </CardHeader>
@@ -188,7 +188,7 @@ export default function PatientDashboard({ activeSection = null }: PatientDashbo
                 <p className="text-[10px] text-muted-foreground mt-1 text-teal-600 font-bold">Securely stored</p>
               </CardContent>
             </Card>
-            <Card className="glass-card transition-all hover:scale-[1.02]">
+            <Card className="enterprise-card transition-all hover:scale-[1.02]">
               <CardHeader className="pb-2">
                 <CardTitle className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Active RX</CardTitle>
               </CardHeader>
@@ -197,7 +197,7 @@ export default function PatientDashboard({ activeSection = null }: PatientDashbo
                 <p className="text-[10px] text-muted-foreground mt-1 text-blue-600 font-bold">Current plans</p>
               </CardContent>
             </Card>
-            <Card className="glass-card transition-all hover:scale-[1.02]">
+            <Card className="enterprise-card transition-all hover:scale-[1.02]">
               <CardHeader className="pb-2">
                 <CardTitle className="text-xs font-bold text-muted-foreground uppercase tracking-widest">Lab Pipeline</CardTitle>
               </CardHeader>

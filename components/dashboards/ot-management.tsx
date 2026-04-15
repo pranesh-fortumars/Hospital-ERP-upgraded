@@ -38,7 +38,7 @@ export default function OTManagement() {
        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
          {/* Live OT Monitors */}
          {otStatus.map((ot) => (
-           <Card key={ot.id} className={`glass-card overflow-hidden transition-all ${ot.status === 'In Use' ? 'ring-2 ring-primary/50 lg:col-span-1' : ''}`}>
+           <Card key={ot.id} className={`enterprise-card overflow-hidden transition-all ${ot.status === 'In Use' ? 'ring-2 ring-primary/50 lg:col-span-1' : ''}`}>
               <div className={`h-1.5 w-full ${
                  ot.status === 'In Use' ? 'bg-primary' : 
                  ot.status === 'Sterilizing' ? 'bg-orange-500' : 'bg-muted'
@@ -132,7 +132,7 @@ export default function OTManagement() {
          ))}
        </div>
 
-       <Card className="glass-card border-none bg-slate-900 text-slate-100 p-6">
+       <Card className="enterprise-card border-none bg-slate-900 text-slate-100 p-6">
           <div className="flex flex-col md:flex-row items-center gap-8">
              <div className="h-32 w-32 rounded-2xl bg-slate-800 flex items-center justify-center p-4 border border-slate-700 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity" />

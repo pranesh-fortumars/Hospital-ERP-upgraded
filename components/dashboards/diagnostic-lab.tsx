@@ -51,7 +51,7 @@ export default function DiagnosticLab() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
          {/* Live Test Monitor */}
-         <Card className="lg:col-span-2 glass-card">
+         <Card className="lg:col-span-2 enterprise-card">
             <CardHeader className="flex flex-row items-center justify-between">
                <div>
                   <CardTitle>Live Sample Tracking</CardTitle>
@@ -100,7 +100,7 @@ export default function DiagnosticLab() {
          </Card>
 
          {/* Equipment Manager */}
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader>
                <CardTitle>LIS & Machines</CardTitle>
                <CardDescription>Networked laboratory equipment status</CardDescription>
@@ -141,7 +141,7 @@ export default function DiagnosticLab() {
 
 function KPIItem({ title, value, sub, icon: Icon, color }: any) {
   return (
-    <Card className="glass-card">
+    <Card className="enterprise-card">
        <CardContent className="p-6">
           <div className="flex items-center justify-between mb-2">
              <div className={`p-2 rounded-lg bg-muted text-muted-foreground ${color}`}>

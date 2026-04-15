@@ -59,7 +59,7 @@ export default function PharmacyInventory() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader className="pb-2">
                <CardTitle className="text-xs font-medium text-muted-foreground uppercase tracking-widest">Total Inventory Value</CardTitle>
             </CardHeader>
@@ -70,7 +70,7 @@ export default function PharmacyInventory() {
                </div>
             </CardContent>
          </Card>
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader className="pb-2">
                <CardTitle className="text-xs font-medium text-muted-foreground uppercase tracking-widest">Expiring Soon (30 days)</CardTitle>
             </CardHeader>
@@ -81,7 +81,7 @@ export default function PharmacyInventory() {
                </div>
             </CardContent>
          </Card>
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader className="pb-2">
                <CardTitle className="text-xs font-medium text-muted-foreground uppercase tracking-widest">Pending Procurement</CardTitle>
             </CardHeader>
@@ -93,7 +93,7 @@ export default function PharmacyInventory() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-         <Card className="lg:col-span-2 glass-card">
+         <Card className="lg:col-span-2 enterprise-card">
             <CardHeader className="flex flex-row items-center justify-between">
                <div>
                   <CardTitle>Inventory levels by Category</CardTitle>
@@ -126,7 +126,7 @@ export default function PharmacyInventory() {
             </CardContent>
          </Card>
 
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader>
                <CardTitle>Critical Stock Alerts</CardTitle>
                <CardDescription>Items below threshold or near expiry.</CardDescription>
@@ -158,7 +158,7 @@ export default function PharmacyInventory() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader className="flex flex-row items-center justify-between">
                <div>
                   <CardTitle>Recent Transactions</CardTitle>
@@ -193,7 +193,7 @@ export default function PharmacyInventory() {
             </CardContent>
          </Card>
 
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader>
                <CardTitle>Search & Distribution</CardTitle>
                <CardDescription>Look up drugs or manage batch distribution.</CardDescription>

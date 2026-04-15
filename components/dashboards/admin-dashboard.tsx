@@ -315,21 +315,21 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
       {shouldShow("admin-overview") && (
         <section id="admin-overview" className="space-y-4">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900">Admin Dashboard</h2>
-            <p className="text-gray-600 mt-2">Manage all hospital operations and users</p>
+            <h2 className="text-3xl font-bold text-foreground tracking-tight">Executive Dashboard</h2>
+            <p className="text-muted-foreground mt-2 font-medium">Enterprise overview of hospital operations and system health.</p>
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat) => (
-              <Card key={stat.label}>
+              <Card key={stat.label} className="enterprise-card border-border/50 transition-all hover:scale-[1.02]">
                 <CardHeader className="pb-2">
-                  <CardTitle className="text-sm font-medium text-gray-600">{stat.label}</CardTitle>
+                  <CardTitle className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{stat.label}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between">
-                    <div className="text-2xl font-bold">{stat.value}</div>
-                    <div className={`${stat.color} p-3 rounded-lg`}>
-                      <stat.icon className="h-6 w-6 text-white" />
+                    <div className="text-2xl font-black text-foreground tracking-tighter">{stat.value}</div>
+                    <div className={`${stat.color} p-2.5 rounded-xl shadow-lg ring-4 ring-offset-2 ring-transparent transition-all group-hover:ring-primary/10`}>
+                      <stat.icon className="h-5 w-5 text-white" />
                     </div>
                   </div>
                 </CardContent>
@@ -605,10 +605,10 @@ export default function AdminDashboard({ activeSection = null }: AdminDashboardP
       )}
 
       {showModal && (
-        <div className="fixed inset-0 bg-background/50 backdrop-blur flex items-center justify-center z-50 p-4">
-          <Card className="w-full max-w-md">
-            <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle>{editingUser ? "Edit User" : "Add New User"}</CardTitle>
+        <div className="fixed inset-0 bg-background/60 backdrop-blur-md flex items-center justify-center z-50 p-4 animate-in fade-in duration-300">
+          <Card className="w-full max-w-md enterprise-card shadow-2xl border-primary/20">
+            <CardHeader className="flex flex-row items-center justify-between border-b border-border/50 pb-4">
+              <CardTitle className="text-xl font-bold">{editingUser ? "Update Identity" : "Provision New User"}</CardTitle>
               <Button variant="ghost" size="sm" onClick={handleCloseModal} className="h-8 w-8 p-0">
                 <X className="h-4 w-4" />
               </Button>

@@ -86,7 +86,7 @@ export default function Patient360({ patientId = "P001" }: { patientId?: string 
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="glass-card">
+        <Card className="enterprise-card">
           <CardHeader className="py-4 flex flex-row items-center justify-between space-y-0">
              <CardTitle className="text-xs font-medium text-muted-foreground">Heart Rate</CardTitle>
              <Heart className="h-4 w-4 text-red-500" />
@@ -96,7 +96,7 @@ export default function Patient360({ patientId = "P001" }: { patientId?: string 
              <p className="text-[10px] text-green-500 mt-1">Normal Range</p>
           </CardContent>
         </Card>
-        <Card className="glass-card">
+        <Card className="enterprise-card">
           <CardHeader className="py-4 flex flex-row items-center justify-between space-y-0">
              <CardTitle className="text-xs font-medium text-muted-foreground">Blood Pressure</CardTitle>
              <Activity className="h-4 w-4 text-blue-500" />
@@ -106,7 +106,7 @@ export default function Patient360({ patientId = "P001" }: { patientId?: string 
              <p className="text-[10px] text-green-500 mt-1">Optimal</p>
           </CardContent>
         </Card>
-        <Card className="glass-card">
+        <Card className="enterprise-card">
           <CardHeader className="py-4 flex flex-row items-center justify-between space-y-0">
              <CardTitle className="text-xs font-medium text-muted-foreground">Temperature</CardTitle>
              <Thermometer className="h-4 w-4 text-orange-500" />
@@ -116,7 +116,7 @@ export default function Patient360({ patientId = "P001" }: { patientId?: string 
              <p className="text-[10px] text-green-500 mt-1">Normal</p>
           </CardContent>
         </Card>
-        <Card className="glass-card">
+        <Card className="enterprise-card">
           <CardHeader className="py-4 flex flex-row items-center justify-between space-y-0">
              <CardTitle className="text-xs font-medium text-muted-foreground">Oxygen Saturation</CardTitle>
              <Droplets className="h-4 w-4 text-cyan-500" />
@@ -137,7 +137,7 @@ export default function Patient360({ patientId = "P001" }: { patientId?: string 
         </TabsList>
         
         <TabsContent value="vitals" className="mt-4 space-y-4">
-          <Card className="glass-card p-6">
+          <Card className="enterprise-card p-6">
              <div className="flex items-center justify-between mb-6">
                 <div>
                    <h3 className="text-lg font-bold">Remote Patient Monitoring</h3>
@@ -175,7 +175,7 @@ export default function Patient360({ patientId = "P001" }: { patientId?: string 
                 { date: 'Sep 28, 2024', event: 'Physical Examination', doctor: 'Dr. James Miller', type: 'In-person', notes: 'Routine checkup. Type 2 Diabetes management ongoing.' },
                 { date: 'Aug 15, 2024', event: 'Cardiology Review', doctor: 'Dr. Robert Chen', type: 'Specialist', notes: 'ECG normal. Recommended stress test for next month.' },
               ].map((item, i) => (
-                <div key={i} className="flex gap-4 p-4 rounded-xl glass-card">
+                <div key={i} className="flex gap-4 p-4 rounded-xl enterprise-card">
                    <div className="shrink-0">
                       <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                          <Calendar className="h-5 w-5" />
@@ -222,7 +222,7 @@ export default function Patient360({ patientId = "P001" }: { patientId?: string 
         </TabsContent>
 
         <TabsContent value="insurance" className="mt-4">
-           <Card className="glass-card overflow-hidden">
+           <Card className="enterprise-card overflow-hidden">
               <div className="bg-primary/10 p-4 border-b border-primary/20 flex items-center justify-between">
                  <div className="flex items-center gap-2">
                     <ShieldCheck className="h-5 w-5 text-primary" />

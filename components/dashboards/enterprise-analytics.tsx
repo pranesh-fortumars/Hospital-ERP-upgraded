@@ -85,7 +85,7 @@ export default function EnterpriseAnalytics() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Revenue Trends */}
-        <Card className="glass-card">
+        <Card className="enterprise-card">
           <CardHeader>
              <div className="flex items-center justify-between">
                 <div>
@@ -118,7 +118,7 @@ export default function EnterpriseAnalytics() {
         </Card>
 
         {/* Telemedicine Growth */}
-        <Card className="glass-card">
+        <Card className="enterprise-card">
           <CardHeader>
              <div className="flex items-center justify-between">
                 <div>
@@ -147,7 +147,7 @@ export default function EnterpriseAnalytics() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Department Utilization */}
-        <Card className="lg:col-span-2 glass-card">
+        <Card className="lg:col-span-2 enterprise-card">
           <CardHeader>
              <CardTitle className="text-lg">Department Utilization</CardTitle>
              <CardDescription>Staff & Resource occupancy per specialty</CardDescription>
@@ -173,7 +173,7 @@ export default function EnterpriseAnalytics() {
         </Card>
 
         {/* Bed Management */}
-        <Card className="glass-card">
+        <Card className="enterprise-card">
           <CardHeader>
              <CardTitle className="text-lg">Facility Capacity</CardTitle>
              <CardDescription>Current bed allocation status</CardDescription>
@@ -217,7 +217,7 @@ export default function EnterpriseAnalytics() {
 
 function KPIItem({ title, value, trend, positive, icon: Icon }: any) {
   return (
-    <Card className="glass-card overflow-hidden relative">
+    <Card className="enterprise-card overflow-hidden relative">
       <div className="absolute top-0 right-0 p-4 opacity-5">
          <Icon className="h-12 w-12" />
       </div>

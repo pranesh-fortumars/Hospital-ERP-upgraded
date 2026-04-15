@@ -530,7 +530,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
           </div>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-            <Card className="glass-card">
+            <Card className="enterprise-card">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm font-medium text-muted-foreground">Today's Appointments</CardTitle>
               </CardHeader>
@@ -539,7 +539,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                 <p className="text-xs text-muted-foreground mt-1">{completedCount} completed</p>
               </CardContent>
             </Card>
-            <Card className="glass-card">
+            <Card className="enterprise-card">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm font-medium text-muted-foreground">Pending Reports</CardTitle>
               </CardHeader>
@@ -548,7 +548,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                 <p className="text-xs text-muted-foreground mt-1">To be reviewed</p>
               </CardContent>
             </Card>
-            <Card className="glass-card">
+            <Card className="enterprise-card">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm font-medium text-muted-foreground">Total Patients</CardTitle>
               </CardHeader>
@@ -557,7 +557,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
                 <p className="text-xs text-muted-foreground mt-1">Under your care</p>
               </CardContent>
             </Card>
-            <Card className="glass-card">
+            <Card className="enterprise-card">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm font-medium text-muted-foreground">Consultations</CardTitle>
               </CardHeader>
@@ -884,7 +884,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
           </div>
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-            <Card className="glass-card">
+            <Card className="enterprise-card">
               <CardHeader>
                 <CardTitle>Create Prescription</CardTitle>
                 <CardDescription>Select a patient and add medication details</CardDescription>
@@ -1185,7 +1185,7 @@ export default function DoctorDashboard({ activeSection = null }: DoctorDashboar
 
       {showModal && (
         <div className="fixed inset-0 bg-background/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-in fade-in duration-300">
-          <Card className="w-full max-w-2xl max-h-[90vh] overflow-y-auto glass-card shadow-2xl border-primary/20">
+          <Card className="w-full max-w-2xl max-h-[90vh] overflow-y-auto enterprise-card shadow-2xl border-primary/20">
             <CardHeader className="flex flex-row items-center justify-between sticky top-0 bg-background/90 backdrop-blur-md z-10 border-b border-border/50">
               <CardTitle className="text-xl font-bold">{editingConsultation ? "Edit Consultation" : "New Consultation"}</CardTitle>
               <Button variant="ghost" size="sm" onClick={handleCloseModal} className="h-8 w-8 p-0">

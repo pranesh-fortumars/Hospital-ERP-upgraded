@@ -43,7 +43,7 @@ export default function BloodBank() {
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
          {inventory.map((item) => (
-            <Card key={item.group} className="glass-card relative overflow-hidden group">
+            <Card key={item.group} className="enterprise-card relative overflow-hidden group">
                <div className={`absolute top-0 right-0 w-16 h-16 opacity-5 -mr-4 -mt-4 transition-transform group-hover:scale-110`}>
                   <Droplets className="w-full h-full" />
                </div>
@@ -69,7 +69,7 @@ export default function BloodBank() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-         <Card className="lg:col-span-2 glass-card">
+         <Card className="lg:col-span-2 enterprise-card">
             <CardHeader className="flex flex-row items-center justify-between">
                <div>
                   <CardTitle>Recent Cross-match Requests</CardTitle>
@@ -109,7 +109,7 @@ export default function BloodBank() {
             </CardContent>
          </Card>
 
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader>
                <CardTitle>Storage Compliance</CardTitle>
                <CardDescription>Cold-chain monitoring for main bank and decentralized units.</CardDescription>

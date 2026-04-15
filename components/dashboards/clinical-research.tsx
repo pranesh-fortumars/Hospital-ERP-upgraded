@@ -47,7 +47,7 @@ export default function ClinicalResearch() {
            { label: 'Data points collected', value: '1.2M', icon: Microscope },
            { label: 'Compliance Index', value: '99.8%', icon: ShieldCheck },
          ].map((stat, i) => (
-            <Card key={i} className="glass-card">
+            <Card key={i} className="enterprise-card">
                <CardContent className="p-4 flex items-center gap-4">
                   <div className="h-10 w-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
                      <stat.icon className="h-5 w-5" />
@@ -62,7 +62,7 @@ export default function ClinicalResearch() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader className="flex flex-row items-center justify-between">
                <div>
                   <CardTitle>Global Study Portfolio</CardTitle>
@@ -111,7 +111,7 @@ export default function ClinicalResearch() {
          </Card>
 
          <div className="space-y-6">
-            <Card className="glass-card">
+            <Card className="enterprise-card">
                <CardHeader>
                   <CardTitle>Next Milestones</CardTitle>
                   <CardDescription>Actionable events for research coordinators.</CardDescription>
@@ -141,7 +141,7 @@ export default function ClinicalResearch() {
                </CardContent>
             </Card>
 
-            <Card className="glass-card bg-slate-900 border-none relative overflow-hidden">
+            <Card className="enterprise-card bg-slate-900 border-none relative overflow-hidden">
                <div className="absolute top-0 right-0 p-6 opacity-10">
                   <Microscope className="h-24 w-24 text-white" />
                </div>

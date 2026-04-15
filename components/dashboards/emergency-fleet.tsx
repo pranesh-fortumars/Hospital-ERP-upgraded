@@ -44,7 +44,7 @@ export default function EmergencyFleet() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
          {/* Live Map / View Area */}
-         <Card className="lg:col-span-2 glass-card overflow-hidden">
+         <Card className="lg:col-span-2 enterprise-card overflow-hidden">
             <CardHeader className="bg-slate-900 text-white p-6 border-none">
                <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -76,7 +76,7 @@ export default function EmergencyFleet() {
          </Card>
 
          <div className="space-y-4">
-            <Card className="glass-card">
+            <Card className="enterprise-card">
                <CardHeader className="pb-4 border-b">
                   <CardTitle className="text-base">Quick Status List</CardTitle>
                </CardHeader>
@@ -117,7 +117,7 @@ export default function EmergencyFleet() {
                </CardContent>
             </Card>
 
-            <Card className="glass-card bg-slate-900 border-none">
+            <Card className="enterprise-card bg-slate-900 border-none">
                <CardContent className="p-6 space-y-4">
                   <div className="flex items-center gap-3 text-red-400">
                      <AlertCircle className="h-5 w-5" />
@@ -154,7 +154,7 @@ export default function EmergencyFleet() {
            { label: 'Available Units', value: '5', icon: Truck },
            { label: 'Incident Radius', value: '14km', icon: MapPin },
          ].map((stat, i) => (
-            <Card key={i} className="glass-card">
+            <Card key={i} className="enterprise-card">
                <CardContent className="p-4 flex items-center gap-4">
                   <div className="h-10 w-10 rounded-xl bg-primary/5 flex items-center justify-center text-primary">
                      <stat.icon className="h-5 w-5" />

@@ -37,7 +37,7 @@ export default function SecurityAuditLogs() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card className="glass-card">
+        <Card className="enterprise-card">
            <CardHeader className="py-4 flex flex-row items-center justify-between space-y-0">
               <CardTitle className="text-xs font-medium text-muted-foreground">Failed Logins (24h)</CardTitle>
               <Lock className="h-4 w-4 text-red-500" />
@@ -47,7 +47,7 @@ export default function SecurityAuditLogs() {
               <p className="text-[10px] text-red-500 mt-1">4 flagged as brute-force</p>
            </CardContent>
         </Card>
-        <Card className="glass-card">
+        <Card className="enterprise-card">
            <CardHeader className="py-4 flex flex-row items-center justify-between space-y-0">
               <CardTitle className="text-xs font-medium text-muted-foreground">Sensitive Access</CardTitle>
               <Eye className="h-4 w-4 text-blue-500" />
@@ -57,7 +57,7 @@ export default function SecurityAuditLogs() {
               <p className="text-[10px] text-green-500 mt-1">All verified within role</p>
            </CardContent>
         </Card>
-        <Card className="glass-card">
+        <Card className="enterprise-card">
            <CardHeader className="py-4 flex flex-row items-center justify-between space-y-0">
               <CardTitle className="text-xs font-medium text-muted-foreground">System Health</CardTitle>
               <Activity className="h-4 w-4 text-emerald-500" />
@@ -69,7 +69,7 @@ export default function SecurityAuditLogs() {
         </Card>
       </div>
 
-      <Card className="glass-card">
+      <Card className="enterprise-card">
         <CardHeader>
            <CardTitle>Global Audit Trail</CardTitle>
            <CardDescription>Comprehensive log of all significant system events</CardDescription>
@@ -109,7 +109,7 @@ export default function SecurityAuditLogs() {
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-         <Card className="glass-card bg-slate-900 text-slate-100 border-slate-800">
+         <Card className="enterprise-card bg-slate-900 text-slate-100 border-slate-800">
             <CardHeader>
                <div className="flex items-center gap-2">
                   <ShieldAlert className="h-5 w-5 text-red-500" />
@@ -128,7 +128,7 @@ export default function SecurityAuditLogs() {
             </CardContent>
          </Card>
 
-         <Card className="glass-card">
+         <Card className="enterprise-card">
             <CardHeader>
                <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-emerald-500" />
